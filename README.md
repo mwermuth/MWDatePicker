@@ -1,3 +1,3 @@
-== MWDatePicker - Customize the Look and Feel of UIDatePicker
+## MWDatePicker - Customize the Look and Feel of UIDatePicker
 
-=== Cooming Soon :)
+### Cooming Soon :)
