@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1A1D2B17607D0600042990 /* KSAdvancedPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1A1D2A17607D0600042990 /* KSAdvancedPicker.m */; };
+		2C1A1D3017607DA400042990 /* MWDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1A1D2F17607DA400042990 /* MWDatePicker.m */; };
 		2C2EC7C4173A2B5E0062524C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2EC7C3173A2B5E0062524C /* UIKit.framework */; };
 		2C2EC7C6173A2B5E0062524C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2EC7C5173A2B5E0062524C /* Foundation.framework */; };
 		2C2EC7C8173A2B5E0062524C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2EC7C7173A2B5E0062524C /* CoreGraphics.framework */; };
@@ -23,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C1A1D2917607D0600042990 /* KSAdvancedPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSAdvancedPicker.h; path = Demo/KSAdvancedPicker.h; sourceTree = SOURCE_ROOT; };
+		2C1A1D2A17607D0600042990 /* KSAdvancedPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSAdvancedPicker.m; path = Demo/KSAdvancedPicker.m; sourceTree = SOURCE_ROOT; };
+		2C1A1D2D17607D6900042990 /* ARCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARCHelper.h; path = Demo/ARCHelper.h; sourceTree = SOURCE_ROOT; };
+		2C1A1D2E17607DA400042990 /* MWDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWDatePicker.h; sourceTree = SOURCE_ROOT; };
+		2C1A1D2F17607DA400042990 /* MWDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWDatePicker.m; sourceTree = SOURCE_ROOT; };
 		2C2EC7BF173A2B5E0062524C /* MWDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2EC7C3173A2B5E0062524C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2C2EC7C5173A2B5E0062524C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,10 +63,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C1A1D3117607DA900042990 /* MWDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				2C1A1D2E17607DA400042990 /* MWDatePicker.h */,
+				2C1A1D2F17607DA400042990 /* MWDatePicker.m */,
+			);
+			name = MWDatePicker;
+			sourceTree = "<group>";
+		};
 		2C2EC7B4173A2B5E0062524C = {
 			isa = PBXGroup;
 			children = (
-				2C2EC7C9173A2B5E0062524C /* MWDatePicker */,
+				2C2EC7C9173A2B5E0062524C /* MWDatePickerDemo */,
 				2C2EC7C2173A2B5E0062524C /* Frameworks */,
 				2C2EC7C0173A2B5E0062524C /* Products */,
 			);
@@ -83,9 +99,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2C2EC7C9173A2B5E0062524C /* MWDatePicker */ = {
+		2C2EC7C9173A2B5E0062524C /* MWDatePickerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2C1A1D3117607DA900042990 /* MWDatePicker */,
+				2C1A1D2D17607D6900042990 /* ARCHelper.h */,
+				2C1A1D2917607D0600042990 /* KSAdvancedPicker.h */,
+				2C1A1D2A17607D0600042990 /* KSAdvancedPicker.m */,
 				2C2EC802173A2BD80062524C /* MWAppDelegate.h */,
 				2C2EC803173A2BD80062524C /* MWAppDelegate.m */,
 				2C2EC804173A2BD80062524C /* MWViewController.h */,
@@ -94,6 +114,7 @@
 				2C2EC7FE173A2BCE0062524C /* MWViewController_iPhone.xib */,
 				2C2EC7CA173A2B5E0062524C /* Supporting Files */,
 			);
+			name = MWDatePickerDemo;
 			path = MWDatePicker;
 			sourceTree = "<group>";
 		};
@@ -183,6 +204,8 @@
 				2C2EC7F7173A2BB40062524C /* main.m in Sources */,
 				2C2EC806173A2BD80062524C /* MWAppDelegate.m in Sources */,
 				2C2EC807173A2BD80062524C /* MWViewController.m in Sources */,
+				2C1A1D2B17607D0600042990 /* KSAdvancedPicker.m in Sources */,
+				2C1A1D3017607DA400042990 /* MWDatePicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
