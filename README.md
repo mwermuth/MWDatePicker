@@ -1,4 +1,4 @@
-MWDatePicker - Custome UIDatePicker
+MWDatePicker - Custom UIDatePicker
 ===================================
 
 An UIDatePicker replacement with custom Background and Selector Styles. (As seen in [nextr](https://itunes.apple.com/de/app/nextr/id628098698?mt=8))
