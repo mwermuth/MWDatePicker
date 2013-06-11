@@ -29,7 +29,6 @@
 @property (nonatomic, copy)NSCalendar *calendar;
 
 @property (nonatomic, strong)UIColor *fontColor;
-@property (nonatomic, retain)NSDate *date;
 
 - (UITableView *)tableViewForComponent:(NSInteger)component;
 - (NSInteger)selectedRowInComponent:(NSInteger)component;

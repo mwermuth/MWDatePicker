@@ -23,8 +23,9 @@
     [datePicker setDelegate:self];
     [datePicker setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
     [datePicker setFontColor:[UIColor whiteColor]];
-    [datePicker setShouldUseShadows:YES];
     [datePicker update];
+    
+    [datePicker setDate:[NSDate date] animated:YES];
     
     [self.view addSubview:datePicker];
 }

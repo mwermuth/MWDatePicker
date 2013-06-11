@@ -475,7 +475,7 @@
 }
 
 
-#pragma mark - Date Setter Method
+#pragma mark - Date Method
 
 - (void)setDate:(NSDate *)date animated:(BOOL)animated{
     
@@ -501,6 +501,25 @@
     [self selectRow:numberOfDays inComponent:0 animated:YES];
 }
 
+- (NSDate*)getDate{
+    
+    NSInteger comp0 = [self selectedRowInComponent:0];
+    NSTimeInterval secondsBetween = comp0 * 86400;
+    
+    
+    NSDate *start = [self dateWithYear:1971 month:1 day:1 hour:0 minute:0];
+    NSDate *selectedWithOut = [NSDate dateWithTimeInterval:secondsBetween sinceDate:start];
+    
+    self.calendar.timeZone = [NSTimeZone localTimeZone];
+
+    NSDateComponents *components = [self.calendar components: NSUIntegerMax fromDate:selectedWithOut];
+    [components setHour: ([self selectedRowInComponent:1]%24)];
+    [components setMinute: [self selectedRowInComponent:2]%60];
+    
+    return [self.calendar dateFromComponents: components];
+    
+}
+
 
 #pragma mark - Other methods
 
@@ -516,6 +535,17 @@
     
     const NSInteger component = [self componentFromTableView:tableView];
     [self selectRow:row inComponent:component animated:YES];
+}
+
+- (NSDate *)dateWithYear:(NSInteger)yearS month:(NSInteger)monthS day:(NSInteger)dayS hour:(NSInteger)hourS minute:(NSInteger)minuteS {
+    self.calendar.timeZone = [NSTimeZone timeZoneWithName:@"Europe/Paris"];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setYear:yearS];
+    [components setMonth:monthS];
+    [components setDay:dayS];
+    [components setHour:hourS];
+    [components setMinute:minuteS];
+    return [self.calendar dateFromComponents:components];
 }
 
 
