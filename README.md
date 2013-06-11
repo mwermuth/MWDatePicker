@@ -21,7 +21,7 @@ An UIDatePicker replacement with custom Background and Selector Styles. (As seen
 
 ## Installation
 
-1. Add all files under `MWDatePickerDemp/MWDatePicker` to your project
+1. Add `MWDatePicker.h` and `MWDatePicker.m` to your project
 2. Add `QuartzCore.framework` to your project
 
 ## Requirements
