@@ -22,8 +22,8 @@
     MWDatePicker *datePicker = [[MWDatePicker alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-110, 55, 220, 135)];
     [datePicker setDelegate:self];
     [datePicker setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
-    [datePicker setFontColor:[UIColor blackColor]];
-    [datePicker setShouldUseShadows:NO];
+    [datePicker setFontColor:[UIColor whiteColor]];
+    [datePicker setShouldUseShadows:YES];
     [datePicker update];
     
     [self.view addSubview:datePicker];
@@ -40,7 +40,7 @@
 
 - (UIColor *) backgroundColorForDatePicker:(MWDatePicker *)picker
 {
-    return [UIColor whiteColor];
+    return [UIColor blackColor];
 }
 
 
@@ -49,11 +49,11 @@
     
     switch (component) {
         case 0:
-            return [UIColor whiteColor];
+            return [UIColor blackColor];
         case 1:
-            return [UIColor whiteColor];
+            return [UIColor blackColor];
         case 2:
-            return [UIColor whiteColor];
+            return [UIColor blackColor];
         default:
             return 0; // never
     }
@@ -62,7 +62,7 @@
 
 - (UIColor *) viewColorForDatePickerSelector:(MWDatePicker *)picker
 {
-    return [UIColor clearColor];
+    return [UIColor grayColor];
 }
 
 @end

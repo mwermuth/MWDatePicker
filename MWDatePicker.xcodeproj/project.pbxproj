@@ -25,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C1A1D2D17607D6900042990 /* ARCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARCHelper.h; path = Demo/ARCHelper.h; sourceTree = SOURCE_ROOT; };
 		2C1A1D2E17607DA400042990 /* MWDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWDatePicker.h; sourceTree = SOURCE_ROOT; };
 		2C1A1D2F17607DA400042990 /* MWDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWDatePicker.m; sourceTree = SOURCE_ROOT; };
 		2C2EC7BF173A2B5E0062524C /* MWDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				2C1A1D3117607DA900042990 /* MWDatePicker */,
-				2C1A1D2D17607D6900042990 /* ARCHelper.h */,
 				2C2EC802173A2BD80062524C /* MWAppDelegate.h */,
 				2C2EC803173A2BD80062524C /* MWAppDelegate.m */,
 				2C2EC804173A2BD80062524C /* MWViewController.h */,

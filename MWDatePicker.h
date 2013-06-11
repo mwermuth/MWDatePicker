@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import "ARCHelper.h"
 
 @protocol MWPickerDataSource;
 @protocol MWPickerDelegate;
