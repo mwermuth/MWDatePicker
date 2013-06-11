@@ -7,48 +7,44 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "ARCHelper.h"
 
 @protocol MWPickerDataSource;
 @protocol MWPickerDelegate;
 
-@interface MWDatePicker : UIView<UITableViewDelegate, UITableViewDataSource> {
+@interface MWDatePicker : UIView <UITableViewDelegate, UITableViewDataSource> {
     
     CGFloat rowHeight;
     CGFloat centralRowOffset;
     
+    NSArray *minutes;
+    NSArray *hours;
+    NSMutableArray *day;
+    
+    BOOL shouldUseShadows;
+    
 }
 
-@property (nonatomic, ah_weak) id<MWPickerDataSource> dataSource;
-@property (nonatomic, ah_weak) id<MWPickerDelegate> delegate;
-@property (nonatomic, strong)NSCalendar *calendar;
+@property (nonatomic, strong) id<MWPickerDelegate> delegate;
+@property (nonatomic, copy)NSCalendar *calendar;
+
+@property (nonatomic, strong)UIColor *fontColor;
+@property (nonatomic, retain)NSDate *date;
 
 - (UITableView *)tableViewForComponent:(NSInteger)component;
 - (NSInteger)selectedRowInComponent:(NSInteger)component;
 - (void)selectRow:(NSInteger)row inComponent:(NSInteger)component animated:(BOOL)animated;
 - (void)reloadData;
+- (void)update;
 - (void)reloadDataInComponent:(NSInteger)component;
 
-@end
+- (void)setShouldUseShadows:(BOOL)useShadows;
 
-@protocol MWPickerDataSource <NSObject>
-
-- (NSInteger)numberOfComponentsInDatePicker:(MWDatePicker *)picker;
-- (NSInteger)datePicker:(MWDatePicker *)picker numberOfRowsInComponent:(NSInteger)component;
-
-
-- (UIView *)datePicker:(MWDatePicker *)picker viewForComponent:(NSInteger)component inRect:(CGRect)rect;
-- (void)datePicker:(MWDatePicker *)picker setDataForView:(UIView*)view row:(NSInteger)row inComponent:(NSInteger)component;
-
-@optional
-
-- (UIView *)__attribute__((deprecated)) datePicker:(MWDatePicker *)picker viewForComponent:(NSInteger)component;
-
-- (CGFloat)heightForRowInDatePicker:(MWDatePicker *)picker;
-
-- (CGFloat)datePicker:(MWDatePicker*)picker widthForComponent:(NSInteger)component;
+- (void)setDate:(NSDate *)date animated:(BOOL)animated;
 
 @end
+
 
 @protocol MWPickerDelegate <NSObject>
 
@@ -61,12 +57,12 @@
 - (UIColor *)backgroundColorForDatePicker:(MWDatePicker*)picker;
 
 - (UIView *)datePicker:(MWDatePicker*)picker backgroundViewForComponent:(NSInteger)component;
-- (UIColor *)datePicker:(MWDatePicker*)picker bdackgroundColorForComponent:(NSInteger)component;
+- (UIColor *)datePicker:(MWDatePicker*)picker backgroundColorForComponent:(NSInteger)component;
 
 - (UIView *)overlayViewForDatePickerSelector:(MWDatePicker *)picker;
 - (UIColor *)overlayColorForDatePickerSelector:(MWDatePicker *)picker;
 
 - (UIView *)viewForDatePickerSelector:(MWDatePicker *)picker;
-- (UIColor *)colorForDatePickerSelector:(MWDatePicker *)picker;
+- (UIColor *)viewColorForDatePickerSelector:(MWDatePicker *)picker;
 
 @end

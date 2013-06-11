@@ -16,6 +16,7 @@
 @property (nonatomic, strong)UIView *overlay;
 @property (nonatomic, strong)UIView *selector;
 
+
 - (void)addContent;
 - (void)removeContent;
 - (void)updateDelegateSubviews;
@@ -29,13 +30,17 @@
 
 
 
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         self.clipsToBounds = YES;
+        
+        self.fontColor = [UIColor blackColor];
+        self.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+
+        shouldUseShadows = YES;
     }
     return self;
 }
@@ -49,37 +54,16 @@
     self.overlay = nil;
     self.selector = nil;
     
-    [super ah_dealloc];
 }
 
--(void)setDataSource:(id<MWPickerDataSource>)dataSource{
-    
-    if (dataSource == self.dataSource) {
-        return;
-    }
-    
+- (void)update{
     [self removeContent];
-    
-    self.dataSource = dataSource;
-    if (self.dataSource) {
-        [self addContent];
-        [self updateDelegateSubviews];
-        [self reloadData];
-    }
+    [self addContent];
+    [self updateDelegateSubviews];
+    [self fillWithCalendar];
+    [self reloadData];
 }
 
--(void)setDelegate:(id<MWPickerDelegate>)delegate{
-    
-    if (delegate == self.delegate) {
-        return;
-    }
-    
-    self.delegate = delegate;
-    if (self.delegate) {
-        [self updateDelegateSubviews];
-        [self reloadData];
-    }
-}
 
 - (UITableView *)tableViewForComponent:(NSInteger)component{
     
@@ -129,7 +113,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     const NSInteger component = [self componentFromTableView:tableView];
-    return [self.dataSource datePicker:self numberOfRowsInComponent:component];
+    return [self numberOfRowsInComponent:component];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -142,22 +126,20 @@
     UIView *view = nil;
     
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         const CGRect viewRect = cell.contentView.bounds;
         
-        if ([self.dataSource respondsToSelector:@selector(datePicker:viewForComponent:inRect:)]) {
-            view = [self.dataSource datePicker:self viewForComponent:component inRect:viewRect];
-        }
-        else{
-            view = [self.dataSource datePicker:self viewForComponent:component];
-        }
+        view = [self viewForComponent:component inRect:viewRect];
+
         
         view.frame = viewRect;
         view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         view.tag = tag;
+        cell.userInteractionEnabled = YES;
+        view.userInteractionEnabled = YES;
         [cell.contentView addSubview:view];
     }
     else{
@@ -165,7 +147,7 @@
         view = [cell.contentView viewWithTag:tag];
     }
     
-    [self.dataSource datePicker:self setDataForView:view row:indexPath.row inComponent:component];
+    [self setDataForView:view row:indexPath.row inComponent:component];
     
     return cell;
 }
@@ -201,17 +183,11 @@
 
 - (void)addContent{
     
-    if ([self.dataSource respondsToSelector:@selector(heightForRowInDatePicker:)]) {
-        rowHeight = [self.dataSource heightForRowInDatePicker:self];
-    }
-    else{
-        rowHeight = 50;
-    }
+    rowHeight = 50;
     
     centralRowOffset = (self.frame.size.height - rowHeight)/2;
     
-    //const NSInteger components = [self.dataSource numberOfComponentsInDatePicker:self];
-    const NSInteger components = 3;
+    const NSInteger components = [self numberOfComponents];
     
     self.tables = [[NSMutableArray alloc] init];
     self.selectedRowIndexes = [[NSMutableArray alloc] init];
@@ -219,12 +195,8 @@
     CGRect tableFrame = CGRectMake(0, 0, 0, self.bounds.size.height);
     for (NSInteger i = 0; i<components; ++i) {
         
-        if ([self.dataSource respondsToSelector:@selector(datePicker:widthForComponent:)]) {
-            tableFrame.size.width = [self.dataSource datePicker:self widthForComponent:i];
-        }
-        else{
-            tableFrame.size.width = (NSUInteger)(self.frame.size.width /components);
-        }
+        tableFrame.size.width = [self widthForComponent:i];
+
         
         UITableView *table = [[UITableView alloc] initWithFrame:tableFrame];
         table.rowHeight = rowHeight;
@@ -238,11 +210,33 @@
         
         [self.tables addObject:table];
         [self.selectedRowIndexes addObject:[NSNumber numberWithInteger:0]];
-        [table release];
         
-        tableFrame.origin.x += tableFrame.size.width;
+        tableFrame.origin.x += tableFrame.size.width-5;
     }
     
+    if (shouldUseShadows) {
+        UIView *upperShadow = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.bounds.size.width, self.bounds.size.height*1/3)];
+        //[v setBackgroundColor:[UIColor greenColor]];
+        CAGradientLayer *gradient = [CAGradientLayer layer];
+        gradient.frame = upperShadow.bounds;
+        gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor clearColor] CGColor], nil];
+        [upperShadow.layer insertSublayer:gradient atIndex:0];
+        [upperShadow setUserInteractionEnabled:NO];
+        
+        [self addSubview:upperShadow];
+        
+        UIView *lowerShadow = [[UIView alloc] initWithFrame:CGRectMake(0.0f, self.bounds.size.height-self.bounds.size.height*1/3, self.bounds.size.width, self.bounds.size.height*1/3)];
+        //[v setBackgroundColor:[UIColor greenColor]];
+        CAGradientLayer *gradient2 = [CAGradientLayer layer];
+        gradient2.frame = lowerShadow.bounds;
+        gradient2.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+        [lowerShadow.layer insertSublayer:gradient2 atIndex:0];
+        [lowerShadow setUserInteractionEnabled:NO];
+        
+        [self addSubview:lowerShadow];
+    }
+
+
 }
 
 
@@ -284,18 +278,18 @@
     // component background view/color
     NSUInteger i = 0;
     for (UITableView *table in self.tables) {
-        if ([self.delegate respondsToSelector:@selector(advancedPicker:backgroundViewForComponent:)]) {
+        if ([self.delegate respondsToSelector:@selector(datePicker:backgroundViewForComponent:)]) {
             table.backgroundView = [self.delegate datePicker:self backgroundViewForComponent:i];
-        } else if ([self.delegate respondsToSelector:@selector(advancedPicker:backgroundColorForComponent:)]) {
-            table.backgroundColor = [self.delegate datePicker:self bdackgroundColorForComponent:i];
+        } else if ([self.delegate respondsToSelector:@selector(datePicker:backgroundColorForComponent:)]) {
+            table.backgroundColor = [self.delegate datePicker:self backgroundColorForComponent:i];
         } else {
-            table.backgroundColor = [UIColor clearColor];
+            table.backgroundColor = [UIColor whiteColor];
         }
         ++i;
     }
     
     // picker background
-    if ([self.delegate respondsToSelector:@selector(backgroundViewForAdvancedPicker:)]) {
+    if ([self.delegate respondsToSelector:@selector(backgroundViewForDatePicker:)]) {
         self.backgroundView = [self.delegate backgroundViewForDatePicker:self];
         
         // add and send to back
@@ -303,6 +297,9 @@
         [self sendSubviewToBack:self.backgroundView];
     } else if ([self.delegate respondsToSelector:@selector(backgroundColorForDatePicker:)]) {
         self.backgroundColor = [self.delegate backgroundColorForDatePicker:self];
+    }
+    else{
+        self.backgroundColor = [UIColor whiteColor];
     }
     
     // optional overlay
@@ -326,9 +323,10 @@
     // custom selector?
     if ([self.delegate respondsToSelector:@selector(viewForDatePickerSelector:)]) {
         self.selector = [self.delegate viewForDatePickerSelector:self];
-    } else if ([self.delegate respondsToSelector:@selector(colorForDatePickerSelector:)]) {
+    } else if ([self.delegate respondsToSelector:@selector(viewColorForDatePickerSelector:)]) {
         self.selector = [[UIView alloc] init];
-        self.selector.backgroundColor = [self.delegate colorForDatePickerSelector:self];
+        self.selector.backgroundColor = [self.delegate viewColorForDatePickerSelector:self];
+        self.selector.alpha = 0.3;
     } else {
         self.selector = [[UIView alloc] init];
         self.selector.backgroundColor = [UIColor blackColor];
@@ -347,11 +345,162 @@
     self.selector.frame = selectorFrame;
     
     [self addSubview:self.selector];
+
     
-    //    NSLog(@"self.frame = %@", NSStringFromCGRect(self.frame));
-    //    NSLog(@"table.frame = %@", NSStringFromCGRect(table.frame));
-    //    NSLog(@"selector.frame = %@", NSStringFromCGRect(selector.frame));
 }
+
+#pragma mark - Date Configuration
+
+- (void)fillWithCalendar{
+    minutes = @[@"00",@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30",@"31",@"32",@"33",@"34",@"35",@"36",@"37",@"38",@"39",@"40",@"41",@"42",@"43",@"44",@"45",@"46",@"47",@"48",@"49",@"50",@"51",@"52",@"53",@"54",@"55",@"56",@"57",@"58",@"59"];
+    
+    hours = @[@"00",@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23"];
+    
+    
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:1];
+    [comps setMonth:1];
+    [comps setYear:1971];
+    NSCalendar *calendar = self.calendar;
+    calendar.timeZone = [NSTimeZone localTimeZone];
+    
+    NSDate *curDate = [calendar dateFromComponents:comps];
+    
+    NSDateComponents *comps2 = [[NSDateComponents alloc] init];
+    
+    [comps2 setDay:31];
+    [comps2 setMonth:12];
+    [comps2 setYear:2100];
+    NSDate *endDate = [calendar dateFromComponents:comps2];
+    
+    day = [NSMutableArray array];
+    while([curDate timeIntervalSince1970] <= [endDate timeIntervalSince1970]) //you can also use the earlier-method
+    {
+        [day addObject:curDate];
+        curDate = [NSDate dateWithTimeInterval:86400 sinceDate:curDate];
+    }
+    
+}
+
+
+- (NSInteger) numberOfComponents
+{
+    return 3;
+}
+
+
+- (NSInteger) numberOfRowsInComponent:(NSInteger)component
+{
+    if (component == 0) {
+        return [day count];
+    }
+    else if (component == 1){
+        return [hours count];
+    }
+    else if (component == 2){
+        return [minutes count];
+    }
+    
+    return 0;
+}
+
+- (void) setDataForView:(UIView *)view row:(NSInteger)row inComponent:(NSInteger)component
+{
+    UILabel *label = (UILabel *) view;
+    
+    
+    if (component == 0) {
+        
+        NSDate *d = [day objectAtIndex:row];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"EE dd.MMM";
+        
+        label.text = [dateFormatter stringFromDate:d];
+        
+    }
+    else if (component == 1){
+        label.text = [hours objectAtIndex:row%24];
+        
+    }
+    else if (component == 2){
+        label.text = [minutes objectAtIndex:row%60];
+        
+    }
+}
+
+- (UIView *) viewForComponent:(NSInteger)component inRect:(CGRect)rect
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.backgroundColor = [UIColor clearColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    
+    switch (component) {
+        case 0:
+            label.textColor = self.fontColor;
+            label.font = [UIFont systemFontOfSize:19.0];
+            break;
+        case 1:
+            label.textColor = self.fontColor;
+            label.font = [UIFont systemFontOfSize:33.0];
+            break;
+        case 2:
+            label.textColor = self.fontColor;
+            label.font = [UIFont systemFontOfSize:33.0];
+            break;
+    }
+    
+    return label;
+}
+
+
+- (CGFloat) widthForComponent:(NSInteger)component
+{
+    CGFloat width = self.frame.size.width;
+    
+    switch (component) {
+        case 0:
+            width *= 0.55;
+            break;
+        case 1:
+            width *= 0.25;
+            break;
+        case 2:
+            width *= 0.25;
+            break;
+        default:
+            return 0; // never
+    }
+    
+    return round(width);
+}
+
+
+#pragma mark - Date Setter Method
+
+- (void)setDate:(NSDate *)date animated:(BOOL)animated{
+    
+    self.calendar.timeZone = [NSTimeZone localTimeZone];
+    NSDateComponents *dateComponents = [self.calendar components:(NSHourCalendarUnit  | NSMinuteCalendarUnit) fromDate:date];
+    NSInteger hour = [dateComponents hour];
+    NSInteger minute = [dateComponents minute];
+    
+    [self selectRow:hour inComponent:1 animated:YES];
+    [self selectRow:minute inComponent:2 animated:YES];
+    
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:1];
+    [comps setMonth:1];
+    [comps setYear:1971];
+    
+    NSDate *date2 = [self.calendar dateFromComponents:comps];
+    
+    NSTimeInterval secondsBetween = [date timeIntervalSinceDate:date2];
+    
+    int numberOfDays = secondsBetween / 86400;
+    
+    [self selectRow:numberOfDays inComponent:0 animated:YES];
+}
+
 
 #pragma mark - Other methods
 
@@ -362,18 +511,18 @@
 
 - (void)alignTableViewToRowBoundary:(UITableView *)tableView
 {
-    //    NSLog(@"contentOffset = %@", NSStringFromCGPoint(tableView.contentOffset));
-    //    NSLog(@"rowHeight = %f", tableView.rowHeight);
-    
     const CGPoint relativeOffset = CGPointMake(0, tableView.contentOffset.y + tableView.contentInset.top);
-    //    NSLog(@"relativeOffset = %@", NSStringFromCGPoint(relativeOffset));
-    
     const NSUInteger row = round(relativeOffset.y / tableView.rowHeight);
-    //    NSLog(@"row = %d", row);
     
     const NSInteger component = [self componentFromTableView:tableView];
     [self selectRow:row inComponent:component animated:YES];
 }
 
+
+- (void)setShouldUseShadows:(BOOL)useShadows{
+    
+    shouldUseShadows = useShadows;
+    [self update];
+}
 
 @end
