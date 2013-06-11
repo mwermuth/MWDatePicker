@@ -51,6 +51,7 @@ An UIDatePicker replacement with custom Background and Selector Styles. (As seen
 - (UIColor \*)viewColorForDatePickerSelector:(MWDatePicker \*)picker;
 
 ## Credits
+The base of MWDatePicker is used from [keeshux](https://github.com/keeshux/KSAdvancedPicker)
 
 MWDatePicker was created by [Marcus Wermuth](http://www.mwermuth.com) in the development of [nextr](https://itunes.apple.com/de/app/nextr/id628098698?mt=8).
 
