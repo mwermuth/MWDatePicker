@@ -35,18 +35,26 @@ An UIDatePicker replacement with custom Background and Selector Styles. (As seen
 2. Add 'MWPickerDelegate' to your Class
 3. Implement MWDatePicker Delegate Methods
 
-- (void)datePicker:(MWDatePicker*)picker didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
-- (void)datePicker:(MWDatePicker *)picker didClickRow:(NSInteger)row inComponent:(NSInteger)component;
+- (void)datePicker:(MWDatePicker \*)picker didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
+- (void)datePicker:(MWDatePicker \*)picker didClickRow:(NSInteger)row inComponent:(NSInteger)component;
 
-- (UIView *)backgroundViewForDatePicker:(MWDatePicker*)picker;
-- (UIColor *)backgroundColorForDatePicker:(MWDatePicker*)picker;
+- (UIView \*)backgroundViewForDatePicker:(MWDatePicker \*)picker;
+- (UIColor \*)backgroundColorForDatePicker:(MWDatePicker \*)picker;
 
-- (UIView *)datePicker:(MWDatePicker*)picker backgroundViewForComponent:(NSInteger)component;
-- (UIColor *)datePicker:(MWDatePicker*)picker backgroundColorForComponent:(NSInteger)component;
+- (UIView \*)datePicker:(MWDatePicker \*)picker backgroundViewForComponent:(NSInteger)component;
+- (UIColor \*)datePicker:(MWDatePicker \*)picker backgroundColorForComponent:(NSInteger)component;
 
-- (UIView *)overlayViewForDatePickerSelector:(MWDatePicker *)picker;
-- (UIColor *)overlayColorForDatePickerSelector:(MWDatePicker *)picker;
+- (UIView \*)overlayViewForDatePickerSelector:(MWDatePicker \*)picker;
+- (UIColor \*)overlayColorForDatePickerSelector:(MWDatePicker \*)picker;
 
-- (UIView *)viewForDatePickerSelector:(MWDatePicker *)picker;
-- (UIColor *)viewColorForDatePickerSelector:(MWDatePicker *)picker;
+- (UIView \*)viewForDatePickerSelector:(MWDatePicker \*)picker;
+- (UIColor \*)viewColorForDatePickerSelector:(MWDatePicker \*)picker;
+
+## Credits
+
+MWDatePicker was created by [Marcus Wermuth](http://www.mwermuth.com) in the development of [nextr](https://itunes.apple.com/de/app/nextr/id628098698?mt=8).
+
+
+## License
+MWDatePicker is available under the MIT license. See the LICENSE file for more info.
 
