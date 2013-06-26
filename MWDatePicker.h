@@ -39,6 +39,7 @@
 
 - (void)setShouldUseShadows:(BOOL)useShadows;
 
+- (NSDate*)getDate;
 - (void)setDate:(NSDate *)date animated:(BOOL)animated;
 
 @end

@@ -66,4 +66,8 @@
     return [UIColor grayColor];
 }
 
+-(void)datePicker:(MWDatePicker *)picker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    NSLog(@"%@",[picker getDate]);
+}
+
 @end
