@@ -21,6 +21,8 @@
     NSArray *hours;
     NSMutableArray *day;
     
+    NSDate *minDate;
+    
     BOOL shouldUseShadows;
     
 }
@@ -41,6 +43,8 @@
 
 - (NSDate*)getDate;
 - (void)setDate:(NSDate *)date animated:(BOOL)animated;
+
+- (void)setMinimumDate:(NSDate *)minDate;
 
 @end
 

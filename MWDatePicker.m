@@ -382,6 +382,31 @@
     
 }
 
+- (void)updateWithMinimumDate{
+    
+    [day removeAllObjects];
+    
+    NSCalendar *calendar = self.calendar;
+    calendar.timeZone = [NSTimeZone localTimeZone];
+    
+    
+    NSDateComponents *comps2 = [[NSDateComponents alloc] init];
+    
+    [comps2 setDay:31];
+    [comps2 setMonth:12];
+    [comps2 setYear:2100];
+    NSDate *endDate = [calendar dateFromComponents:comps2];
+    NSDate *minDatecopy = [minDate copy];
+    
+    day = [NSMutableArray array];
+    while([minDatecopy timeIntervalSince1970] <= [endDate timeIntervalSince1970]) //you can also use the earlier-method
+    {
+        [day addObject:minDatecopy];
+        minDatecopy = [NSDate dateWithTimeInterval:86400 sinceDate:minDatecopy];
+    }
+
+}
+
 
 - (NSInteger) numberOfComponents
 {
@@ -477,6 +502,26 @@
 
 #pragma mark - Date Method
 
+- (void)setMinimumDate:(NSDate *)minimumDate{
+    
+    minDate = minimumDate;
+    
+    NSDate *cur =[self getDate];
+    
+    [self removeContent];
+    [self addContent];
+    
+    [self updateDelegateSubviews];
+    [self updateWithMinimumDate];
+    [self setDate:cur animated:NO];
+    [self reloadData];
+    
+}
+
+- (NSDate *)minimumDate{
+    return minDate;
+}
+
 - (void)setDate:(NSDate *)date animated:(BOOL)animated{
     
     self.calendar.timeZone = [NSTimeZone localTimeZone];
@@ -487,14 +532,21 @@
     [self selectRow:hour inComponent:1 animated:YES];
     [self selectRow:minute inComponent:2 animated:YES];
     
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:1];
-    [comps setMonth:1];
-    [comps setYear:1971];
-    
-    NSDate *date2 = [self.calendar dateFromComponents:comps];
-    
-    NSTimeInterval secondsBetween = [date timeIntervalSinceDate:date2];
+    NSTimeInterval secondsBetween;
+    if (minDate != nil) {
+        secondsBetween = [date timeIntervalSinceDate:minDate];
+    }
+    else{
+        NSDateComponents *comps = [[NSDateComponents alloc] init];
+        [comps setDay:1];
+        [comps setMonth:1];
+        [comps setYear:1971];
+        
+        NSDate *date2 = [self.calendar dateFromComponents:comps];
+        
+        secondsBetween = [date timeIntervalSinceDate:date2];
+
+    }
     
     int numberOfDays = secondsBetween / 86400;
     

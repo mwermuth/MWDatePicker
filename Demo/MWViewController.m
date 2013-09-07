@@ -17,16 +17,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
     MWDatePicker *datePicker = [[MWDatePicker alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-110, 55, 220, 135)];
     [datePicker setDelegate:self];
+    
+    // Set the type of Calendar the Dates should live in
     [datePicker setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
     [datePicker setFontColor:[UIColor whiteColor]];
     [datePicker update];
     
-    [datePicker setDate:[NSDate date] animated:YES];
+    // Set the Minimum Date you want to show to the user
+    [datePicker setMinimumDate:[NSDate date]];
     
+    // Set the Date the Picker should show at the beginning
+    [datePicker setDate:[NSDate date] animated:YES];
+
     [self.view addSubview:datePicker];
 }
 
