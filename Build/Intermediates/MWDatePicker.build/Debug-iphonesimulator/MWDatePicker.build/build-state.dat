@@ -1,393 +1,0 @@
-TMWDatePicker
-v5
-r1
-cCheck dependencies
-cProcessInfoPlistFile /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/Info.plist /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Info.plist
-cProcessPCH /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch.pth Demo/MWDatePicker-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWDatePicker.o /Users/marcus/Code/objective-c/MWDatePicker/MWDatePicker.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWAppDelegate.o /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWViewController.o /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/main.o /Users/marcus/Code/objective-c/MWDatePicker/Demo/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cLd /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker normal i386
-cGenerateDSYMFile /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app.dSYM /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker
-cCpResource Demo/Default@2x.png Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default@2x.png
-cCopyPlistFile /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker-Info.plist Demo/MWDatePicker-Info.plist
-cCpResource Demo/Default-568h@2x.png Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default-568h@2x.png
-cCompileXIB /Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPad.xib
-cCpResource Demo/Default.png Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default.png
-cCompileXIB /Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPhone.xib
-cCopyStringsFile /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/en.lproj/InfoPlist.strings Demo/en.lproj/InfoPlist.strings
-cTouch /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk
-c0000000051EF1AA50000000000000110
-t1374624421
-s272
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c00000000519737EC0000000000228FE0
-t1368864748
-s2265056
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c00000000519737EE00000000003DDFA0
-t1368864750
-s4054944
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c00000000519737ED00000000000015F7
-t1368864749
-s5623
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
-c00000000519737F000000000001D5750
-t1368864752
-s1922896
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c00000000519737F00000000000000E8D
-t1368864752
-s3725
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c00000000519737F20000000000AB6230
-t1368864754
-s11231792
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/Availability.h
-c00000000519737FE0000000000001B73
-t1368864766
-s7027
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWAppDelegate.o
-t1378543936
-s93032
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWDatePicker.LinkFileList
-c00000000522AE7800000000000000279
-t1378543488
-s633
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWDatePicker.o
-t1378544599
-s160072
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWViewController.o
-t1378544599
-s80436
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/main.o
-t1378543489
-s3288
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch.pth
-t1378543488
-s4678344
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app
-t1378544599
-s340
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app.dSYM
-t1378544599
-s102
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default-568h@2x.png
-t1378543489
-s18594
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default.png
-t1378543489
-s6540
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default@2x.png
-t1378543489
-s16107
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/Info.plist
-t1378543488
-s914
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker
-t1378544599
-s75396
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker-Info.plist
-t1378543489
-s766
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/PkgInfo
-t1378543488
-s8
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/en.lproj/InfoPlist.strings
-t1378543489
-s42
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/en.lproj/MWViewController_iPad.nib
-t1378543490
-s822
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/en.lproj/MWViewController_iPhone.nib
-t1378543489
-s862
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/Default-568h@2x.png
-c0000000050748B2300000000000048A2
-t1349815075
-s18594
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/Default.png
-c0000000050748B23000000000000198C
-t1349815075
-s6540
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/Default@2x.png
-c0000000050748B230000000000003EEB
-t1349815075
-s16107
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWAppDelegate.h
-c000000005189F3DE0000000000000176
-t1367995358
-s374
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWAppDelegate.m
-c000000005189F3DE00000000000009EF
-t1367995358
-s2543
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Info.plist
-c000000005189F3DE00000000000005B3
-t1367995358
-s1459
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Prefix.pch
-c000000005189F3DE0000000000000147
-t1367995358
-s327
-i<Availability.h>
-i<UIKit/UIKit.h>
-i<Foundation/Foundation.h>
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWViewController.h
-c0000000051B737D7000000000000010A
-t1370961879
-s266
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWViewController.m
-c00000000522AEBD700000000000006CE
-t1378544599
-s1742
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/InfoPlist.strings
-c000000005189F3DE000000000000002D
-t1367995358
-s45
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPad.xib
-c000000005189F3DE000000000000148F
-t1367995358
-s5263
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPhone.xib
-c000000005189F3DE0000000000001788
-t1367995358
-s6024
-
-N/Users/marcus/Code/objective-c/MWDatePicker/Demo/main.m
-c000000005189F3DE0000000000000156
-t1367995358
-s342
-
-N/Users/marcus/Code/objective-c/MWDatePicker/MWDatePicker.h
-c00000000522AE89800000000000007E5
-t1378543768
-s2021
-
-N/Users/marcus/Code/objective-c/MWDatePicker/MWDatePicker.m
-c00000000522AEC3D0000000000004875
-t1378544701
-s18549
-
-CBuild AST from /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWAppDelegate.m
-r0
-
-CBuild AST from /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWViewController.m
-r0
-
-CBuild AST from /Users/marcus/Code/objective-c/MWDatePicker/Demo/main.m
-r0
-
-CBuild AST from /Users/marcus/Code/objective-c/MWDatePicker/MWDatePicker.m
-r0
-
-CCheck dependencies
-r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies83bfc7bd23dbb741^03efc8bd23dbb741^-162"Warning: The Copy Bundle Resources build phase contains this target's Info.plist file '/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Info.plist'.1(21%IDEActivityLogMessage2@161"Warning: The Copy Bundle Resources build phase contains this target's Info.plist file '/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Info.plist'.-400237501#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--0#1#0#--18"Check dependencies36"226834F3-DA1D-42F8-9F99-48303F7686A5-
-
-CCompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWAppDelegate.o /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s400236736.529942
-e400236736.974172
-r1
-xCompileC
-xBuild/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWAppDelegate.o
-x/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWAppDelegate.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWAppDelegate.m6e3088c020dbb741^9e62f9c020dbb741^---0#0#0#-19%DVTDocumentLocation2@80"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWAppDelegate.m0000000000000000^3790"CompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWAppDelegate.o Demo/MWAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-generated-files.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-own-target-headers.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-all-target-headers.hmap -iquote /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-project-headers.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/DerivedSources/i386 -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/DerivedSources -F/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator -include /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch -MMD -MT dependencies -MF /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWAppDelegate.d --serialize-diagnostics /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWAppDelegate.dia -c /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWAppDelegate.m -o /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWAppDelegate.o36"A077008B-2B9F-433F-9D82-E2C1179FAA83-
-
-CCompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWDatePicker.o /Users/marcus/Code/objective-c/MWDatePicker/MWDatePicker.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s400237501.788438
-e400237502.259977
-r1
-xCompileC
-xBuild/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWDatePicker.o
-x/Users/marcus/Code/objective-c/MWDatePicker/MWDatePicker.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"Compile /Users/marcus/Code/objective-c/MWDatePicker/MWDatePicker.mec15cabd23dbb741^198f42be23dbb741^---0#0#0#-19%DVTDocumentLocation2@74"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/MWDatePicker.m0000000000000000^3774"CompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWDatePicker.o MWDatePicker.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-generated-files.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-own-target-headers.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-all-target-headers.hmap -iquote /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-project-headers.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/DerivedSources/i386 -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/DerivedSources -F/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator -include /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch -MMD -MT dependencies -MF /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWDatePicker.d --serialize-diagnostics /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWDatePicker.dia -c /Users/marcus/Code/objective-c/MWDatePicker/MWDatePicker.m -o /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWDatePicker.o36"1856F6A0-E7E7-4E6A-B1F1-F2BF9BAC27D8-
-
-CCompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWViewController.o /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s400237399.617435
-e400237399.739287
-r1
-xCompileC
-xBuild/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWViewController.o
-x/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWViewController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection75"Compile /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWViewController.m11389e5723dbb741^ab40bd5723dbb741^---0#0#0#-19%DVTDocumentLocation2@83"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWViewController.m0000000000000000^3808"CompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWViewController.o Demo/MWViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-generated-files.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-own-target-headers.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-all-target-headers.hmap -iquote /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-project-headers.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/DerivedSources/i386 -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/DerivedSources -F/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator -include /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch -MMD -MT dependencies -MF /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWViewController.d --serialize-diagnostics /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWViewController.dia -c /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWViewController.m -o /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWViewController.o36"5269E73C-25CB-4756-A720-6EA0BF5D9FFC-
-
-CCompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/main.o /Users/marcus/Code/objective-c/MWDatePicker/Demo/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s400236289.375289
-e400236289.452329
-r1
-xCompileC
-xBuild/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/main.o
-x/Users/marcus/Code/objective-c/MWDatePicker/Demo/main.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Compile /Users/marcus/Code/objective-c/MWDatePicker/Demo/main.m0b4360011fdbb741^e6cb73011fdbb741^---0#0#0#-19%DVTDocumentLocation2@71"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Demo/main.m0000000000000000^3736"CompileC Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/main.o Demo/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-generated-files.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-own-target-headers.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-all-target-headers.hmap -iquote /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-project-headers.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/DerivedSources/i386 -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/DerivedSources -F/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator -include /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch -MMD -MT dependencies -MF /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/main.dia -c /Users/marcus/Code/objective-c/MWDatePicker/Demo/main.m -o /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/main.o36"1ED82948-1952-4C91-9D77-D7E6205A4BD3-
-
-CCompileXIB /Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPad.xib
-s400236289.747458
-e400236290.436148
-r1
-xCompileXIB
-x/Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPad.xib
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Compiling /Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPad.xibcd74bf011fdbb741^44a76f021fdbb741^---0#0#0#-19%DVTDocumentLocation2@99"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPad.xib0000000000000000^958"CompileXIB Demo/en.lproj/MWViewController_iPad.xib    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/en.lproj/MWViewController_iPad.nib /Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPad.xib --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk36"12423999-5F26-444F-86C6-A9056CED8DCA-
-
-CCompileXIB /Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPhone.xib
-s400236289.749622
-e400236289.880744
-r1
-xCompileXIB
-x/Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPhone.xib
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection95"Compiling /Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPhone.xib1503c0011fdbb741^6078e1011fdbb741^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPhone.xib0000000000000000^964"CompileXIB Demo/en.lproj/MWViewController_iPhone.xib    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/en.lproj/MWViewController_iPhone.nib /Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/MWViewController_iPhone.xib --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk36"70242791-4FEB-4C66-9F70-CB1784AAE3B2-
-
-CCopyPlistFile /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker-Info.plist Demo/MWDatePicker-Info.plist
-s400236289.746000
-e400236289.747359
-r1
-xCopyPlistFile
-x/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker-Info.plist
-xDemo/MWDatePicker-Info.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection33"Copy Demo/MWDatePicker-Info.plistba14bf011fdbb741^878cbf011fdbb741^---0#0#0#-19%DVTDocumentLocation2@88"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Info.plist0000000000000000^546"CopyPlistFile Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker-Info.plist Demo/MWDatePicker-Info.plist    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyPlist --convert binary1 --outdir /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app -- Demo/MWDatePicker-Info.plist36"2120B2C6-7BA6-44C1-87E9-494271B3CDD1-
-
-CCopyStringsFile /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/en.lproj/InfoPlist.strings Demo/en.lproj/InfoPlist.strings
-s400236289.747186
-e400236289.749505
-r1
-xCopyStringsFile
-x/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/en.lproj/InfoPlist.strings
-xDemo/en.lproj/InfoPlist.strings
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Copy Demo/en.lproj/InfoPlist.stringsaa61bf011fdbb741^5ddfbf011fdbb741^---0#0#0#-19%DVTDocumentLocation2@91"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Demo/en.lproj/InfoPlist.strings0000000000000000^607"CopyStringsFile Build/Products/Debug-iphonesimulator/MWDatePicker.app/en.lproj/InfoPlist.strings Demo/en.lproj/InfoPlist.strings    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/en.lproj -- Demo/en.lproj/InfoPlist.strings36"EF8CE2D0-4108-40B3-8CBF-3FA2861DFFEF-
-
-CCpResource Demo/Default-568h@2x.png Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default-568h@2x.png
-s400236289.742747
-e400236289.745823
-r1
-xCpResource
-xDemo/Default-568h@2x.png
-xBuild/Products/Debug-iphonesimulator/MWDatePicker.app/Default-568h@2x.png
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection78"Copy Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default-568h@2x.png7139be011fdbb741^67f1be011fdbb741^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default-568h@2x.png000000000080d041^641"CpResource "Demo/Default-568h@2x.png" "Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default-568h@2x.png"    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/marcus/Code/objective-c/MWDatePicker/Demo/Default-568h@2x.png" /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app36"B1F88221-79EB-4CEC-BC89-AD34ABB300C4-
-
-CCpResource Demo/Default.png Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default.png
-s400236289.742764
-e400236289.745785
-r1
-xCpResource
-xDemo/Default.png
-xBuild/Products/Debug-iphonesimulator/MWDatePicker.app/Default.png
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Copy Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default.png713dbe011fdbb741^abedbe011fdbb741^---0#0#0#-19%DVTDocumentLocation2@125"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default.png000000000080d041^611"CpResource Demo/Default.png Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default.png    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/marcus/Code/objective-c/MWDatePicker/Demo/Default.png /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app36"DA128071-1996-45AE-B1FD-DC9DA2D26711-
-
-CCpResource Demo/Default@2x.png Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default@2x.png
-s400236289.745909
-e400236289.747074
-r1
-xCpResource
-xDemo/Default@2x.png
-xBuild/Products/Debug-iphonesimulator/MWDatePicker.app/Default@2x.png
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Copy Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default@2x.png460cbf011fdbb741^e083bf011fdbb741^---0#0#0#-19%DVTDocumentLocation2@128"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default@2x.png000000000080d041^626"CpResource "Demo/Default@2x.png" "Build/Products/Debug-iphonesimulator/MWDatePicker.app/Default@2x.png"    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/marcus/Code/objective-c/MWDatePicker/Demo/Default@2x.png" /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app36"947FF3CC-8684-4107-B488-063AD38C4564-
-
-CGenerateDSYMFile /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app.dSYM /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker
-s400237502.356446
-e400237502.397870
-r1
-xGenerateDSYMFile
-x/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app.dSYM
-x/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"Generate /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app.dSYMad515bbe23dbb741^cfda65be23dbb741^---0#0#0#-19%DVTDocumentLocation2@119"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app.dSYM/0000000000000000^706"GenerateDSYMFile Build/Products/Debug-iphonesimulator/MWDatePicker.app.dSYM Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker -o /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app.dSYM36"24C7AABA-86FD-4226-A2EE-CA4F9DB06D99-
-
-CLd /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker normal i386
-s400237502.260140
-e400237502.356306
-r1
-xLd
-x/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker
-xnormal
-xi386
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection115"Link /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker82ad42be23dbb741^22375bbe23dbb741^---0#0#0#--1279"Ld Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker normal i386    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv IPHONEOS_DEPLOYMENT_TARGET 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -L/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator -F/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator -filelist /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/Objects-normal/i386/MWDatePicker.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=6.0 -framework QuartzCore -framework UIKit -framework Foundation -framework CoreGraphics -o /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/MWDatePicker36"A068537C-B6A4-49DE-AB0B-6AF04E64BF68-
-
-CProcessInfoPlistFile /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/Info.plist /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Info.plist
-s400236288.302922
-e400236288.310106
-r1
-xProcessInfoPlistFile
-x/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/Info.plist
-x/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Info.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Process /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Info.plist61a54e001fdbb741^5f5f4f001fdbb741^---0#0#0#-19%DVTDocumentLocation2@88"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Info.plist0000000000000000^755"ProcessInfoPlistFile Build/Products/Debug-iphonesimulator/MWDatePicker.app/Info.plist Demo/MWDatePicker-Info.plist    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Info.plist -genpkginfo /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app/Info.plist36"E49280BE-40F4-4CBC-9FFE-C00264B19DF5-
-
-CProcessPCH /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch.pth Demo/MWDatePicker-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s400236288.310524
-e400236289.000305
-r1
-xProcessPCH
-x/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch.pth
-xDemo/MWDatePicker-Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Precompile Demo/MWDatePicker-Prefix.pch477651001fdbb741^cf1200011fdbb741^---0#0#0#-19%DVTDocumentLocation2@88"file://localhost/Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Prefix.pch0000000000000000^3646"ProcessPCH Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch.pth Demo/MWDatePicker-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-generated-files.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-own-target-headers.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-all-target-headers.hmap -iquote /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/MWDatePicker-project-headers.hmap -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/DerivedSources/i386 -I/Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/MWDatePicker.build/Debug-iphonesimulator/MWDatePicker.build/DerivedSources -F/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator --serialize-diagnostics /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch.dia -c /Users/marcus/Code/objective-c/MWDatePicker/Demo/MWDatePicker-Prefix.pch -o /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch.pth -MMD -MT dependencies -MF /Users/marcus/Code/objective-c/MWDatePicker/Build/Intermediates/PrecompiledHeaders/MWDatePicker-Prefix-drfsdhodkcpfnlgenaxalcitxzka/MWDatePicker-Prefix.pch.d36"3FA0791E-64BF-4BCA-90AB-B170F0CE14B3-
-
-CProcessPCH /Users/marcus/Library/Developer/Xcode/DerivedData/MWDatePicker-fdwmukntwxkcdabsrgaukzzliyym/Index/PrecompiledHeaders/MWDatePicker-Prefix-dojkdtgqvyfisxdjmdbggcuskocz_ast/MWDatePicker-Prefix.pch.pth Demo/MWDatePicker-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
-r0
-
-CTouch /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app
-s400237502.398763
-e400237502.414593
-r1
-xTouch
-x/Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"Touch /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app202966be23dbb741^46246abe23dbb741^---0#0#0#--426"Touch Build/Products/Debug-iphonesimulator/MWDatePicker.app    cd /Users/marcus/Code/objective-c/MWDatePicker    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/marcus/Code/objective-c/MWDatePicker/Build/Products/Debug-iphonesimulator/MWDatePicker.app36"E980C89A-B435-43C0-BF49-6577F235CDBD-
-
