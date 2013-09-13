@@ -558,8 +558,14 @@
     NSInteger comp0 = [self selectedRowInComponent:0];
     NSTimeInterval secondsBetween = comp0 * 86400;
     
-    
-    NSDate *start = [self dateWithYear:1971 month:1 day:1 hour:0 minute:0];
+    NSDate *start;
+    if (minDate != nil) {
+        start = minDate;
+    }
+    else{
+        start = [self dateWithYear:1971 month:1 day:1 hour:0 minute:0];
+    }
+
     NSDate *selectedWithOut = [NSDate dateWithTimeInterval:secondsBetween sinceDate:start];
     
     self.calendar.timeZone = [NSTimeZone localTimeZone];
