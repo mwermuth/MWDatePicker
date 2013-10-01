@@ -62,10 +62,10 @@
 - (UIView *)datePicker:(MWDatePicker*)picker backgroundViewForComponent:(NSInteger)component;
 - (UIColor *)datePicker:(MWDatePicker*)picker backgroundColorForComponent:(NSInteger)component;
 
-- (UIView *)overlayViewForDatePickerSelector:(MWDatePicker *)picker;
-- (UIColor *)overlayColorForDatePickerSelector:(MWDatePicker *)picker;
+- (UIView *)overlayViewForNumberPickerSelector:(MWDatePicker *)picker;
+- (UIColor *)overlayColorForNumberPickerSelector:(MWDatePicker *)picker;
 
-- (UIView *)viewForDatePickerSelector:(MWDatePicker *)picker;
-- (UIColor *)viewColorForDatePickerSelector:(MWDatePicker *)picker;
+- (UIView *)viewForNumberPickerSelector:(MWDatePicker *)picker;
+- (UIColor *)viewColorForNumberPickerSelector:(MWDatePicker *)picker;
 
 @end

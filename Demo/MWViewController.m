@@ -1,12 +1,14 @@
 //
 //  MWViewController.m
-//  MWDatePicker
+//  MWNumberPicker
 //
 //  Created by Marcus on 08.05.13.
 //  Copyright (c) 2013 mwermuth.com. All rights reserved.
 //
 
 #import "MWViewController.h"
+#import "MWNumberPicker.h"
+
 
 @interface MWViewController ()
 
@@ -18,61 +20,45 @@
 {
     [super viewDidLoad];
     
-    MWDatePicker *datePicker = [[MWDatePicker alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-110, 55, 220, 135)];
-    [datePicker setDelegate:self];
+    [self.view setBackgroundColor:[UIColor blackColor]];
+    MWNumberPicker *numberPicker = [[MWNumberPicker alloc] initWithFrame:CGRectMake(0, 300, self.view.bounds.size.width, 100)];
+    [numberPicker setDelegate:self];
     
-    // Set the type of Calendar the Dates should live in
-    [datePicker setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
-    [datePicker setFontColor:[UIColor whiteColor]];
-    [datePicker update];
+    [numberPicker setFontColor:[UIColor whiteColor]];
+    [numberPicker update];
     
-    // Set the Minimum Date you want to show to the user
-    [datePicker setMinimumDate:[NSDate date]];
-    
-    // Set the Date the Picker should show at the beginning
-    [datePicker setDate:[NSDate date] animated:YES];
+    //[numberPicker start];
 
-    [self.view addSubview:datePicker];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [numberPicker setNumber:[NSNumber numberWithInt:12000] animated:YES];
+    [self.view addSubview:numberPicker];
+    
 }
 
 
-#pragma mark - MWPickerDelegate
 
-- (UIColor *) backgroundColorForDatePicker:(MWDatePicker *)picker
+
+#pragma mark - MWMWNumberPickerPickerDelegate
+
+- (UIColor *) backgroundColorForNumberPicker:(MWNumberPicker *)picker
 {
     return [UIColor blackColor];
 }
 
 
-- (UIColor *) datePicker:(MWDatePicker *)picker backgroundColorForComponent:(NSInteger)component
+- (UIColor *) numberPicker:(MWNumberPicker *)picker backgroundColorForComponent:(NSInteger)component
 {
     
-    switch (component) {
-        case 0:
-            return [UIColor blackColor];
-        case 1:
-            return [UIColor blackColor];
-        case 2:
-            return [UIColor blackColor];
-        default:
-            return 0; // never
-    }
+ return [UIColor blackColor];
 }
 
 
-- (UIColor *) viewColorForDatePickerSelector:(MWDatePicker *)picker
+- (UIColor *) viewColorForNumberPickerSelector:(MWNumberPicker *)picker
 {
-    return [UIColor grayColor];
+    return [UIColor clearColor];
 }
 
--(void)datePicker:(MWDatePicker *)picker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    NSLog(@"%@",[picker getDate]);
+-(void)numberPicker:(MWNumberPicker *)picker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+   
 }
 
 @end

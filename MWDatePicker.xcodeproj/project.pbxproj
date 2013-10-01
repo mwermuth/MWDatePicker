@@ -22,6 +22,7 @@
 		2C2EC806173A2BD80062524C /* MWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2EC803173A2BD80062524C /* MWAppDelegate.m */; };
 		2C2EC807173A2BD80062524C /* MWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2EC805173A2BD80062524C /* MWViewController.m */; };
 		2C3418861767695F00B54B87 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3418851767695F00B54B87 /* QuartzCore.framework */; };
+		5D47006D17FA959300DD5A9F /* MWNumberPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47006C17FA959300DD5A9F /* MWNumberPicker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		2C2EC804173A2BD80062524C /* MWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWViewController.h; path = Demo/MWViewController.h; sourceTree = SOURCE_ROOT; };
 		2C2EC805173A2BD80062524C /* MWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWViewController.m; path = Demo/MWViewController.m; sourceTree = SOURCE_ROOT; };
 		2C3418851767695F00B54B87 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5D47006B17FA959300DD5A9F /* MWNumberPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWNumberPicker.h; sourceTree = SOURCE_ROOT; };
+		5D47006C17FA959300DD5A9F /* MWNumberPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWNumberPicker.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,8 @@
 		2C2EC7C9173A2B5E0062524C /* MWDatePickerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5D47006B17FA959300DD5A9F /* MWNumberPicker.h */,
+				5D47006C17FA959300DD5A9F /* MWNumberPicker.m */,
 				2C1A1D3117607DA900042990 /* MWDatePicker */,
 				2C2EC802173A2BD80062524C /* MWAppDelegate.h */,
 				2C2EC803173A2BD80062524C /* MWAppDelegate.m */,
@@ -202,6 +207,7 @@
 				2C2EC806173A2BD80062524C /* MWAppDelegate.m in Sources */,
 				2C2EC807173A2BD80062524C /* MWViewController.m in Sources */,
 				2C1A1D3017607DA400042990 /* MWDatePicker.m in Sources */,
+				5D47006D17FA959300DD5A9F /* MWNumberPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

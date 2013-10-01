@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MWDatePicker.h"
+#import "MWNumberPicker.h"
 
-@interface MWViewController : UIViewController < MWPickerDelegate>
+@interface MWViewController : UIViewController < MWNumberPickerDelegate>
 
 @end
