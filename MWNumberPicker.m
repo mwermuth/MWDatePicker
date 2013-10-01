@@ -48,7 +48,7 @@
          
          (C) Anup Kattel, you can copy this code, please leave these comments if you don't mind.
          */
-        
+        autoScrolling = NO;
 
         digits = @[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9"];
     
@@ -367,7 +367,7 @@
     
 }
 
-
+// TODO make this dynamic
 - (NSInteger) numberOfComponents
 {
     return 7;
@@ -436,13 +436,13 @@
 
 
 - (void)setNumber:(NSNumber*)num animated:(BOOL)animated{
-    
-    if (self.animationTimer != nil) {
-         [self.animationTimer invalidate];
-    }
-  
-    //mod 10 - divide and set
+    autoScrolling = YES;
 
+    int x=0;
+    for (UITableView *tv in self.tables) {
+         [self selectRow:0 inComponent:x animated:NO]; //reset this - to do work out how to hide rows
+        x++;
+    }
     int number = [num intValue];
 
     NSMutableArray *arr = [NSMutableArray array];
@@ -459,6 +459,7 @@
         [self selectRow:[num intValue] inComponent:i animated:animated];
         i--;
     }
+   // autoScrolling = NO; - need to delay this
 }
 
 
@@ -493,7 +494,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView_
 {
-    if ([self.animationTimer isValid]) {
+    if (autoScrolling) {
            return; // we're time bombing
     }
  

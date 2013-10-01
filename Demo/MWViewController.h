@@ -10,6 +10,8 @@
 #import "MWDatePicker.h"
 #import "MWNumberPicker.h"
 
-@interface MWViewController : UIViewController < MWNumberPickerDelegate>
+@interface MWViewController : UIViewController < MWNumberPickerDelegate>{
+    MWNumberPicker *numberPicker;
+}
 
 @end

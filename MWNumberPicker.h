@@ -15,6 +15,7 @@
 @protocol MWNumberPickerDelegate;
 @interface MWNumberPicker : UIView <UITableViewDelegate, UITableViewDataSource> {
     
+    BOOL autoScrolling;
     CGFloat rowHeight;
     CGFloat centralRowOffset;
     
