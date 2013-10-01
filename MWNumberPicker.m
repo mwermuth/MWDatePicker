@@ -5,8 +5,11 @@
 //  Created by Marcus on 06.06.13.
 //  Copyright (c) 2013 mwermuth.com. All rights reserved.
 //
+//http://stackoverflow.com/questions/4404745/change-the-speed-of-setcontentoffsetanimated
+
 
 #import "MWNumberPicker.h"
+#import "JPTableView.h"
 
 @interface MWNumberPicker()
 
@@ -97,7 +100,9 @@
     UITableView *table = [self.tables objectAtIndex:component];
     
     const CGPoint alignedOffset = CGPointMake(0, row*table.rowHeight - table.contentInset.top);
-    [table setContentOffset:alignedOffset animated:animated];
+    //[table setContentOffset:alignedOffset animated:animated];
+    [(JPTableView*)table doAnimatedScrollTo:alignedOffset];
+ 
     
     if ([self.delegate respondsToSelector:@selector(numberPicker:didSelectRow:inComponent:)]) {
         [self.delegate numberPicker:self didSelectRow:row inComponent:component];
@@ -192,7 +197,11 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    
+    /*if ([scrollView isKindOfClass:[JPTableView class]]) {
+        JPTableView *sv = (JPTableView*)scrollView;
+          [sv scrollViewDidEndDecelerating];
+    }*/
+  
     [self alignTableViewToRowBoundary:(UITableView *)scrollView];
 }
 
@@ -215,7 +224,7 @@
         tableFrame.size.width = [self widthForComponent:i];
 
         
-        UITableView *table = [[UITableView alloc] initWithFrame:tableFrame];
+        UITableView *table = [[JPTableView alloc] initWithFrame:tableFrame];
         table.rowHeight = rowHeight;
         table.contentInset = UIEdgeInsetsMake(centralRowOffset, 0, centralRowOffset, 0);
         table.separatorStyle = UITableViewCellSeparatorStyleNone;

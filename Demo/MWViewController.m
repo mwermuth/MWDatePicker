@@ -30,7 +30,7 @@
 
     
     [self.view setBackgroundColor:[UIColor blackColor]];
-     numberPicker = [[MWNumberPicker alloc] initWithFrame:CGRectMake(0, 300, self.view.bounds.size.width, 100)];
+     numberPicker = [[MWNumberPicker alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
     [numberPicker setDelegate:self];
     
     [numberPicker setFontColor:[UIColor whiteColor]];

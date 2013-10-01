@@ -15,6 +15,14 @@
 @protocol MWNumberPickerDelegate;
 @interface MWNumberPicker : UIView <UITableViewDelegate, UITableViewDataSource> {
     
+    //animate the didselect row
+    CGPoint startOffset;
+    CGPoint destinationOffset;
+    NSDate *startTime;
+    NSTimer *timer;
+    
+    
+    
     BOOL autoScrolling;
     CGFloat rowHeight;
     CGFloat centralRowOffset;
