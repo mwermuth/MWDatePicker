@@ -30,7 +30,14 @@
 
     
     [self.view setBackgroundColor:[UIColor blackColor]];
-     numberPicker = [[MWNumberPicker alloc] initWithFrame:CGRectMake(0, 300, self.view.bounds.size.width, 100)];
+    if (IS_IPAD) {
+        numberPicker = [[MWNumberPicker alloc] initWithFrame:CGRectMake(0, 300, self.view.bounds.size.width, 100)];
+    }else{
+             numberPicker = [[MWNumberPicker alloc] initWithFrame:CGRectMake(0, 300, self.view.bounds.size.width, 50)];
+    }
+    numberPicker.autoresizesSubviews = YES;
+    numberPicker.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+
     [numberPicker setDelegate:self];
     
     [numberPicker setFontColor:[UIColor whiteColor]];

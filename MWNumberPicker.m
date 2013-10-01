@@ -3,10 +3,12 @@
 //  MWNumberPicker
 //
 //  Created by Marcus on 06.06.13.
+//  Adapted by John Pope
 //  Copyright (c) 2013 mwermuth.com. All rights reserved.
 //
 
 #import "MWNumberPicker.h"
+
 
 @interface MWNumberPicker()
 
@@ -200,7 +202,12 @@
 
 - (void)addContent{
     
-    rowHeight = 100;
+    if (IS_IPAD) {
+            rowHeight = 100;
+    }else{
+        rowHeight = 50;
+    }
+
     
     centralRowOffset = (self.frame.size.height - rowHeight)/2;
     
@@ -418,7 +425,11 @@
     label.textAlignment = NSTextAlignmentCenter;
     
     label.textColor = self.fontColor;
-    label.font = [UIFont systemFontOfSize:120];
+    if (IS_IPAD) {
+            label.font = [UIFont systemFontOfSize:120];
+    }else{
+        label.font = [UIFont systemFontOfSize:60];
+    }
     return label;
 }
 

@@ -3,6 +3,7 @@
 //  MWNumberPicker
 //
 //  Created by Marcus on 06.06.13.
+//  Adapted by John Pope
 //  Copyright (c) 2013 mwermuth.com. All rights reserved.
 //
 
