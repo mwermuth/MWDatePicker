@@ -19,32 +19,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIButton *btnScan = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btnScan setTitle:@"timer" forState:UIControlStateNormal];
-    [btnScan setBackgroundColor:[UIColor redColor]];
-    [btnScan setFrame:CGRectMake(115,190,90,90)];
-    [btnScan addTarget:self action:@selector(timerStart)
-      forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnScan];
 
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(timerStart)];
+    self.toolbarItems = @[btn];
+    
     
     [self.view setBackgroundColor:[UIColor blackColor]];
     if (IS_IPAD) {
         numberPicker = [[MWNumberPicker alloc] initWithFrame:CGRectMake(0, 300, self.view.bounds.size.width, 100)];
     }else{
-             numberPicker = [[MWNumberPicker alloc] initWithFrame:CGRectMake(0, 300, self.view.bounds.size.width, 50)];
+             numberPicker = [[MWNumberPicker alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height/2, self.view.bounds.size.width, 50)];
     }
-    numberPicker.autoresizesSubviews = YES;
-    numberPicker.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    //numberPicker.autoresizesSubviews = YES;
+    //numberPicker.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
 
     [numberPicker setDelegate:self];
-    
     [numberPicker setFontColor:[UIColor whiteColor]];
     [numberPicker update];
     
-    //
-
     [numberPicker setNumber:[NSNumber numberWithInt:12000] animated:YES];
     
     [self performSelector:@selector(changeNumber) withObject:nil afterDelay:2];

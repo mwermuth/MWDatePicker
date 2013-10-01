@@ -21,7 +21,13 @@
     } else {
         self.viewController = [[MWViewController alloc] initWithNibName:@"MWViewController_iPad" bundle:nil];
     }
-    self.window.rootViewController = self.viewController;
+    
+    UINavigationController *nc = [[UINavigationController alloc]initWithRootViewController:self.viewController];
+    nc.navigationBar.translucent = NO;
+    nc.toolbarHidden = NO;
+    nc.toolbar.tintColor =[UIColor blackColor];
+    nc.navigationBar.tintColor = [UIColor blackColor];
+    self.window.rootViewController = nc;
     [self.window makeKeyAndVisible];
     return YES;
 }
