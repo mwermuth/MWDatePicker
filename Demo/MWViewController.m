@@ -21,7 +21,11 @@
     [super viewDidLoad];
 
     UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(timerStart)];
-    self.toolbarItems = @[btn];
+    UIBarButtonItem *btn1 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(stopTimer)];
+    UIBarButtonItem *btn2 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
+    UIBarButtonItem *flex = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    self.toolbarItems = @[btn,btn1,flex,btn2];
     
     
     [self.view setBackgroundColor:[UIColor blackColor]];
@@ -45,6 +49,14 @@
     
 
     
+}
+-(void)refresh{
+        [numberPicker stop];
+      [self performSelector:@selector(changeNumber) withObject:nil afterDelay:2];
+}
+-(void)stopTimer{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+     [numberPicker stop];
 }
 -(void)timerStart{
     [numberPicker setNumber:[NSNumber numberWithInt:0] animated:YES];
