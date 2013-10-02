@@ -16,6 +16,7 @@
 @protocol MWNumberPickerDelegate;
 @interface MWNumberPicker : UIView <UITableViewDelegate, UITableViewDataSource> {
     
+ 
     //animate the didselect row
     CGPoint startOffset;
     CGPoint destinationOffset;
@@ -40,6 +41,7 @@
     int masterDigit;
     
 }
+@property (nonatomic,strong)   NSMutableDictionary *autoScrollingDict; // used to stop some table from calling viewdidscroll
 @property (nonatomic)     BOOL shouldUseShadows;
 @property (nonatomic, strong) id<MWNumberPickerDelegate> delegate;
 @property (nonatomic, copy)NSCalendar *calendar;

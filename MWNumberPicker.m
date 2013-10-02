@@ -34,6 +34,7 @@
 @implementation MWNumberPicker
 
 
+@synthesize autoScrollingDict;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -41,6 +42,8 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         self.clipsToBounds = YES;
+        
+        self.autoScrollingDict = [[NSMutableDictionary alloc]init];
         animationArray = [[NSMutableArray alloc]init];
         
         /* To emulate infinite scrolling...
@@ -54,7 +57,7 @@
          
          (C) Anup Kattel, you can copy this code, please leave these comments if you don't mind.
          */
-        autoScrolling = NO;
+   
 
         digits = @[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9"];
     
@@ -101,12 +104,12 @@
     NSLog(@"selectRow row:%d  component:%d",row,component);
     [self.selectedRowIndexes replaceObjectAtIndex:component withObject:[NSNumber numberWithInteger:row]];
     
-    UITableView *table = [self.tables objectAtIndex:component];
-    
+    JPTableView *table = [self.tables objectAtIndex:component];
+    [table  cancelInfiniteScrolling];
+
+        
     const CGPoint alignedOffset = CGPointMake(0, row*table.rowHeight - table.contentInset.top);
-   // [table setContentOffset:alignedOffset animated:animated];
-    [table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
-    //[(JPTableView*)table doAnimatedScrollTo:alignedOffset];
+    [(JPTableView*)table doAnimatedScrollTo:alignedOffset];
  
     
     if ([self.delegate respondsToSelector:@selector(numberPicker:didSelectRow:inComponent:)]) {
@@ -174,7 +177,7 @@
     }
     
     
-   // [self setDataForView:view row:indexPath.row inComponent:component];
+    [self setDataForView:view row:indexPath.row inComponent:component];
     
     return cell;
 }
@@ -200,11 +203,30 @@
       //  [self alignTableViewToRowBoundary:(UITableView *)scrollView];
     }
 }
+-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+   
 
+
+}
+-(NSString*)lockedStateForTableView:(UIScrollView *)scrollView{
+     NSString *str = [self.autoScrollingDict valueForKey:[NSString stringWithFormat:@"%d",scrollView.tag]];
+    NSLog(@"lockedStateForTableView:%@",str);
+    if (str == nil) {
+        return @"";
+    }
+    return str;
+}
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
   
-   // [self alignTableViewToRowBoundary:(UITableView *)scrollView];
+    if ([[self lockedStateForTableView:scrollView] isEqualToString:kBouncing]) {
+        [(JPTableView*)scrollView bounceScrollView];
+
+    }
+    
+    
 }
+
+
 
 #pragma mark - Content managemet
 
@@ -230,7 +252,8 @@
         tableFrame.size.width = [self widthForComponent:i];
 
         
-        UITableView *table = [[JPTableView alloc] initWithFrame:tableFrame];
+        JPTableView *table = [[JPTableView alloc] initWithFrame:tableFrame];
+        table.pickerDelegate = self;
         //table.pagingEnabled = NO;
         table.alwaysBounceVertical = YES;
         table.rowHeight = rowHeight;
@@ -396,38 +419,15 @@
 
 - (NSInteger) numberOfRowsInComponent:(NSInteger)component
 {
-    if (component == 0) {
-          return 9;
-    }
-    else if (component == 1){
-         return [digits count];
-    }
-    else if (component == 2){
-        return [digits count];
-    }
-    
+
     return [digits count];;
 }
 
 - (void) setDataForView:(UIView *)view row:(NSInteger)row inComponent:(NSInteger)component
 {
     UILabel *label = (UILabel *) view;
-    
-    
-    if (component == 0) {
-        
-      label.text = [digits objectAtIndex:row%60];
-        
-    }
-    else if (component == 1){
-     label.text = [digits objectAtIndex:row%60];
-        
-    }
-    else if (component == 2){
-        label.text = [digits objectAtIndex:row%60];
-        
-    }
-    label.text = [digits objectAtIndex:row%60];
+
+    label.text = [digits objectAtIndex:row];
     
 }
 
@@ -462,14 +462,16 @@
 
 
 - (void)setNumber:(NSNumber*)num animated:(BOOL)animated{
-    autoScrolling = YES;
-
-    int x=0;
+    
+    [self.autoScrollingDict removeAllObjects];
+   /* int x=0;
     for (UITableView *tv in self.tables) {
+       // [tv reloadData];
+
           int r = arc4random() % 10;
          [self selectRow:r inComponent:x animated:YES]; //reset this - to do work out how to hide rows
         x++;
-    }
+    }*/
     int number = [num intValue];
 
     [animationArray removeAllObjects];
@@ -490,8 +492,8 @@
     int n = [animationArray count];
     if (n) {
         NSNumber *num = [animationArray objectAtIndex:0];
-             int r = arc4random() % 4;
-        [UIView animateWithDuration:r delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
+        [UIView animateWithDuration:2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             
             [self selectRow:[num intValue] inComponent:idx animated:NO];
             int total = [[self tables] count]-1;
@@ -504,6 +506,7 @@
             NSLog(@"completion");
             if ([animationArray count]) {
                 [animationArray removeObjectAtIndex:0];
+                
                 [self performSelector:@selector(animateNextRowSelect) withObject:nil afterDelay:0.5];
             }else{
                // [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(animateNextRowSelect) object:nil];
@@ -544,28 +547,31 @@
     [self update];
 }
 
+
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView_
 {
     
     if (scrollView_.contentOffset.y >= (scrollView_.contentSize.height - scrollView_.bounds.size.height)){
         NSLog(@"we're bouncing");
+      
     }
     
-    return;
+    NSNumber *b = [self.autoScrollingDict valueForKey:[NSString stringWithFormat:@"%d",scrollView_.tag]];
+    if (b!=nil) {
+       // NSLog(@"b:%@",b);
+    }
+    if ([b intValue]) {
+          return;
+    }
+    
+  
  
     CGFloat currentOffsetX = scrollView_.contentOffset.x;
     CGFloat currentOffSetY = scrollView_.contentOffset.y;
     CGFloat contentHeight = scrollView_.contentSize.height;
     
-    //don't allow infinite scrolling back on first row
-    if (scrollView_.tag == [self.tables count] -1) {
-    
-        // if all the selected indexes are 0!!!
-        if (currentOffSetY > ((contentHeight * 6)/ 8.0)) {
-            scrollView_.contentOffset = CGPointMake(currentOffsetX,(currentOffSetY - (contentHeight/2)));
-        }
-        return;
-    }
+
     //When the user scrolls backwards to 1/8th of the new table, user is at the 1/4th of actual data, so we scroll to 5/8th of the new table where the cells are exactly the same.
     if (currentOffSetY < (contentHeight / 8.0)) {
         scrollView_.contentOffset = CGPointMake(currentOffsetX,(currentOffSetY + (contentHeight/2)));

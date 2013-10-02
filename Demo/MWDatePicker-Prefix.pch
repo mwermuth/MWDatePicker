@@ -19,3 +19,7 @@
 #else
 #define IS_IPAD false
 #endif
+
+
+#define kAutoScrolling @"AUTOSCROLLING"
+#define kBouncing @"BOUNCING"
