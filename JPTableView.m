@@ -73,62 +73,20 @@
 }*/
 
 -(void)cancelScrolling{
+    [[PRTween sharedInstance] removeTweenOperation:activeTweenOperation];
 
-    if ([[self lockedState]isEqualToString:kBouncing]) {
-        NSLog(@"cancelScrolling");
-        [self.pickerDelegate.autoScrollingDict setValue:nil forKey:[NSString stringWithFormat:@"%d",self.tag]];
-        [NSTimer cancelPreviousPerformRequestsWithTarget:self];
-        [NSObject cancelPreviousPerformRequestsWithTarget:self];
-    }
-   
 }
 
 
 - (void)bounceScrollView
 {
 
-    return;
+    CGPoint pt =[self contentOffset];
+    CGPoint destinationOffset = CGPointMake(pt.x, 00);
     
-    NSString *locked =[self lockedState];
-    NSLog(@"scrollstate:%@",locked);
-    if ([locked isEqualToString:kAutoScrolling]) return;
-    [self lockWithState:kBouncing];
-    [self setPagingEnabled:NO];
-    [self setScrollEnabled:NO];
-    float f = self.contentSize.height;
-    NSString *str = [NSString stringWithFormat:@"%.2f", f];
-    int fi = [str intValue];
-    int r = arc4random() % fi;
-    
-    [self setContentOffset:CGPointMake(0, -r) animated:YES];
-    [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(unbounceScrollView) userInfo:nil repeats:NO];
+    activeTweenOperation = [PRTweenCGPointLerp lerp:self property:@"contentOffset" from:[self contentOffset] to:destinationOffset duration:1];
 
 
-}
-- (void)unbounceScrollView
-{
-    [self setContentOffset:CGPointMake(0, 0) animated:YES];
-    [self setPagingEnabled:YES];
-    [self setScrollEnabled:YES];
-    if ([[self lockedState] isEqualToString:kBouncing]) {
-        NSLog(@"kBouncing");
-       [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(bounceScrollView) userInfo:nil repeats:NO];
-    }else{
-       
-    }
-    
-}
-
--(void)lockWithState:(NSString*)state{
-    NSLog(@"scrolling:%@",self.pickerDelegate.autoScrollingDict);
-    [self.pickerDelegate.autoScrollingDict setValue:state forKey:[NSString stringWithFormat:@"%d",self.tag]];
-}
--(void)unlock{
-    NSLog(@"scrolling:%@",self.pickerDelegate.autoScrollingDict);
-    [self.pickerDelegate.autoScrollingDict setValue:nil forKey:[NSString stringWithFormat:@"%d",self.tag]];
-}
--(NSString*)lockedState{
-     return [self.pickerDelegate.autoScrollingDict valueForKey:[NSString stringWithFormat:@"%d",self.tag]];
 }
 
 
@@ -141,6 +99,9 @@
     PRTweenTimingFunction f;
     
     int rnd = idx;//arc4random() % 40;
+    if (idx == 40) {
+        idx = 0;
+    }
     NSLog(@"rn:%d",rnd);
     switch (rnd) {
         case 0:   f = PRTweenTimingFunctionLinear;  break;
@@ -183,6 +144,7 @@
         case 37:   f = PRTweenTimingFunctionUIViewEaseIn;      break;
         case 38:   f = PRTweenTimingFunctionUIViewEaseOut;       break;
         case 39:   f = PRTweenTimingFunctionUIViewEaseInOut;     break;
+            
     }
   
     activeTweenOperation.timingFunction = f;
@@ -198,7 +160,6 @@
         
     }
 
- 
 }
 
 @end

@@ -221,7 +221,7 @@
   
       NSLog(@"scrollViewDidEndDecelerating");
     [(JPTableView*)scrollView cancelScrolling];
-     [(JPTableView*)scrollView bounceScrollView];
+    [(JPTableView*)scrollView bounceScrollView];
     
     
 }
