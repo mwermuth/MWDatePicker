@@ -9,5 +9,5 @@
 - (void) doAnimatedScrollTo:(CGPoint)offset;
 - (void)bounceScrollView;
 - (void)unbounceScrollView;
--(void)cancelInfiniteScrolling;
+-(void)cancelBouncing;
 @end

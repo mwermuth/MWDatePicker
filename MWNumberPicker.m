@@ -105,7 +105,7 @@
     [self.selectedRowIndexes replaceObjectAtIndex:component withObject:[NSNumber numberWithInteger:row]];
     
     JPTableView *table = [self.tables objectAtIndex:component];
-    [table  cancelInfiniteScrolling];
+    [table  cancelBouncing];
 
         
     const CGPoint alignedOffset = CGPointMake(0, row*table.rowHeight - table.contentInset.top);
@@ -218,10 +218,9 @@
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
   
-    if ([[self lockedStateForTableView:scrollView] isEqualToString:kBouncing]) {
-        [(JPTableView*)scrollView bounceScrollView];
-
-    }
+      NSLog(@"scrollViewDidEndDecelerating");
+    [(JPTableView*)scrollView cancelBouncing];
+     [(JPTableView*)scrollView bounceScrollView];
     
     
 }
@@ -460,11 +459,18 @@
 
 #pragma mark - Number Picker Method
 
-
+-(void)bounceAllTables{
+    
+    for (JPTableView *tv in self.tables) {
+        // [tv reloadData];
+        
+        [tv bounceScrollView];
+    }
+}
 - (void)setNumber:(NSNumber*)num animated:(BOOL)animated{
     
-    [self.autoScrollingDict removeAllObjects];
-   /* int x=0;
+
+    /*int x=0;
     for (UITableView *tv in self.tables) {
        // [tv reloadData];
 
@@ -498,6 +504,8 @@
             [self selectRow:[num intValue] inComponent:idx animated:NO];
             int total = [[self tables] count]-1;
             if (total ==idx ) {
+                JPTableView *tv = [[self tables] objectAtIndex:idx-1];
+                 [self.autoScrollingDict setValue:nil forKey:[NSString stringWithFormat:@"%d",tv.tag]];
                 return;;
             }
             idx++;
@@ -505,6 +513,8 @@
         }   completion:^(BOOL finished){
             NSLog(@"completion");
             if ([animationArray count]) {
+                JPTableView *tv = [[self tables] objectAtIndex:idx-1];
+                [self.autoScrollingDict setValue:nil forKey:[NSString stringWithFormat:@"%d",tv.tag]];
                 [animationArray removeObjectAtIndex:0];
                 
                 [self performSelector:@selector(animateNextRowSelect) withObject:nil afterDelay:0.5];

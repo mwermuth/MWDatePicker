@@ -80,32 +80,39 @@
     
    
 }
--(void)cancelInfiniteScrolling{
-    NSLog(@"cancelInfiniteScrolling");
-    [self.pickerDelegate.autoScrollingDict setValue:nil forKey:[NSString stringWithFormat:@"%d",self.tag]];
-    [NSTimer cancelPreviousPerformRequestsWithTarget:self];
+-(void)cancelBouncing{
+
+    if ([[self lockedState]isEqualToString:kBouncing]) {
+        NSLog(@"cancelBouncing");
+        [self.pickerDelegate.autoScrollingDict setValue:nil forKey:[NSString stringWithFormat:@"%d",self.tag]];
+        [NSTimer cancelPreviousPerformRequestsWithTarget:self];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    }
+   
 }
 - (void)bounceScrollView
 {
+    NSString *locked =[self lockedState];
+    NSLog(@"scrollstate:%@",locked);
+    if ([locked isEqualToString:kAutoScrolling]) return;
     [self lockWithState:kBouncing];
     [self setPagingEnabled:NO];
     [self setScrollEnabled:NO];
     [self setContentOffset:CGPointMake(0, -400) animated:YES];
-    [self unlock];
     [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(unbounceScrollView) userInfo:nil repeats:NO];
+
+
 }
 - (void)unbounceScrollView
 {
-    [self lockWithState:kBouncing];
     [self setContentOffset:CGPointMake(0, 0) animated:YES];
     [self setPagingEnabled:YES];
     [self setScrollEnabled:YES];
-    
     if ([[self lockedState] isEqualToString:kBouncing]) {
         NSLog(@"kBouncing");
        [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(bounceScrollView) userInfo:nil repeats:NO];
     }else{
-        [self unlock];
+       
     }
     
 }
@@ -120,8 +127,6 @@
 }
 -(NSString*)lockedState{
      return [self.pickerDelegate.autoScrollingDict valueForKey:[NSString stringWithFormat:@"%d",self.tag]];
-
-    
 }
 
 

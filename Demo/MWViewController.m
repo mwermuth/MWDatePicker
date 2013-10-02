@@ -41,7 +41,7 @@
     [numberPicker setDelegate:self];
     [numberPicker setFontColor:[UIColor whiteColor]];
     [numberPicker update];
-    
+    [numberPicker bounceAllTables];
     [numberPicker setNumber:[NSNumber numberWithInt:12000] animated:YES];
     
     //numberPicker.shouldUseShadows = YES;
