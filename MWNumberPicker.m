@@ -100,16 +100,18 @@
 }
 
 -(void) selectRow:(NSInteger)row inComponent:(NSInteger)component animated:(BOOL)animated{
-    
+    [self selectRow:row inComponent:component animated:animated duration:1];
+}
+-(void) selectRow:(NSInteger)row inComponent:(NSInteger)component animated:(BOOL)animated duration:(float)duration{
     NSLog(@"selectRow row:%d  component:%d",row,component);
     [self.selectedRowIndexes replaceObjectAtIndex:component withObject:[NSNumber numberWithInteger:row]];
     
     JPTableView *table = [self.tables objectAtIndex:component];
-    [table  cancelBouncing];
+    [table  cancelScrolling];
 
         
     const CGPoint alignedOffset = CGPointMake(0, row*table.rowHeight - table.contentInset.top);
-    [(JPTableView*)table doAnimatedScrollTo:alignedOffset];
+    [(JPTableView*)table doAnimatedScrollTo:alignedOffset duration:duration timingFuntion:PRTweenTimingFunctionCAEaseIn];
  
     
     if ([self.delegate respondsToSelector:@selector(numberPicker:didSelectRow:inComponent:)]) {
@@ -200,7 +202,7 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
     if (!decelerate) {
-      //  [self alignTableViewToRowBoundary:(UITableView *)scrollView];
+        [self alignTableViewToRowBoundary:(UITableView *)scrollView];
     }
 }
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
@@ -219,7 +221,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
   
       NSLog(@"scrollViewDidEndDecelerating");
-    [(JPTableView*)scrollView cancelBouncing];
+    [(JPTableView*)scrollView cancelScrolling];
      [(JPTableView*)scrollView bounceScrollView];
     
     
@@ -258,7 +260,7 @@
         table.rowHeight = rowHeight;
         
         //table.contentInset = UIEdgeInsetsMake(centralRowOffset, 0, centralRowOffset, 0);
-       // table.separatorStyle = UITableViewCellSeparatorStyleNone;
+        table.separatorStyle = UITableViewCellSeparatorStyleNone;
         table.showsVerticalScrollIndicator = NO;
         if ([table respondsToSelector:@selector(separatorInset)]) {
             table.separatorInset = UIEdgeInsetsZero;
@@ -458,7 +460,13 @@
 
 
 #pragma mark - Number Picker Method
-
+-(void)cancelBounceAllTables{
+    for (JPTableView *tv in self.tables) {
+        // [tv reloadData];
+        
+        [tv cancelScrolling];
+    }
+}
 -(void)bounceAllTables{
     
     for (JPTableView *tv in self.tables) {
@@ -501,7 +509,7 @@
         
         [UIView animateWithDuration:2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             
-            [self selectRow:[num intValue] inComponent:idx animated:NO];
+            [self selectRow:[num intValue] inComponent:idx animated:NO duration:2];
             int total = [[self tables] count]-1;
             if (total ==idx ) {
                 JPTableView *tv = [[self tables] objectAtIndex:idx-1];
@@ -544,7 +552,7 @@
     const NSUInteger row = round(relativeOffset.y / tableView.rowHeight);
     
     const NSInteger component = [self componentFromTableView:tableView];
-    [self selectRow:row inComponent:component animated:YES];
+    [self selectRow:row inComponent:component animated:YES duration:0.1];
 }
 
 - (NSDate *)dateWithYear:(NSInteger)yearS month:(NSInteger)monthS day:(NSInteger)dayS hour:(NSInteger)hourS minute:(NSInteger)minuteS {
@@ -646,7 +654,7 @@ static CGFloat kFlipAnimationUpdateInterval = 0.5; // = 2 times per second
 
     int i=[[self tables] count]-1;
     for (NSNumber *num in arr) {
-        [self selectRow:[num intValue] inComponent:i animated:YES];
+        [self selectRow:[num intValue] inComponent:i animated:YES duration:0.5];
         i--;
     }
     

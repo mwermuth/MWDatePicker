@@ -59,6 +59,7 @@
 - (void)start;
 - (void)stop;
 - (void)setNumber:(NSNumber*)num animated:(BOOL)animated;
+-(void)cancelBounceAllTables;
 - (void)bounceAllTables;
 @end
 

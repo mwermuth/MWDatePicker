@@ -25,9 +25,11 @@
     UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(timerStart)];
     UIBarButtonItem *btn1 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(stopTimer)];
     UIBarButtonItem *btn2 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
+      UIBarButtonItem *btn3 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(black)];
     UIBarButtonItem *flex = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+     UIBarButtonItem *btnBounce = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(bounceAllTables)];
     
-    self.toolbarItems = @[btn,btn1,flex,btn2];
+    self.toolbarItems = @[btn,btn1,btn3,flex,btnBounce,btn2];
     
     
     [self.view setBackgroundColor:[UIColor blueColor]];
@@ -53,6 +55,10 @@
 
     
 }
+-(void)bounceAllTables{
+    [numberPicker bounceAllTables];
+    [numberPicker setNumber:[NSNumber numberWithInt:12000] animated:YES];
+}
 -(void)refresh{
         [numberPicker stop];
     int r = arc4random() % 3;
@@ -69,18 +75,26 @@
 }
 -(void)changeNumber{
     // max 7 digits
-     int r = arc4random() % 9999999;
+     int r = arc4random() % 999999;
     [numberPicker setNumber:[NSNumber numberWithInt:r] animated:YES];
     //int r2 = arc4random() % 3;
-    [self performSelector:@selector(changeNumber) withObject:nil afterDelay:5];
-    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 1;  //  0.5 to 1.0, away from white
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-    [self.view setBackgroundColor:color];
+    if (black) {
+        [self.view setBackgroundColor:[UIColor blackColor]];
+    }else{
+        [self performSelector:@selector(changeNumber) withObject:nil afterDelay:5];
+        CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
+        CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 1;  //  0.5 to 1.0, away from white
+        CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+        UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+        [self.view setBackgroundColor:color];
+    }
+
 }
 
-
+-(void)black{
+    [numberPicker cancelBounceAllTables];
+    black = YES;
+}
 #pragma mark - MWMWNumberPickerPickerDelegate
 /*
 - (UIColor *) backgroundColorForNumberPicker:(MWNumberPicker *)picker

@@ -12,6 +12,7 @@
 
 @interface MWViewController : UIViewController < MWNumberPickerDelegate>{
     MWNumberPicker *numberPicker;
+    BOOL black;
 }
 
 @end

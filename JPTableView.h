@@ -1,13 +1,18 @@
 #import <UIKit/UIKit.h>
 #import "MWNumberPicker.h"
+#import "PRTween.h"
+
 
 @interface JPTableView : UITableView{
-    
+  PRTweenOperation *activeTweenOperation;
 }
 @property (nonatomic,assign) MWNumberPicker *pickerDelegate;
+@property (nonatomic, strong) NSDate *startTime;
+
+
 - (id)initWithFrame:(CGRect)frame;
-- (void) doAnimatedScrollTo:(CGPoint)offset;
+- (void) doAnimatedScrollTo:(CGPoint)destinationOffset duration:(CGFloat)duration timingFuntion:(PRTweenTimingFunction)timingFunction;
 - (void)bounceScrollView;
 - (void)unbounceScrollView;
--(void)cancelBouncing;
+-(void)cancelScrolling;
 @end
