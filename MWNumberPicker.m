@@ -3,6 +3,7 @@
 //  MWNumberPicker
 //
 //  Created by Marcus on 06.06.13.
+//  Adapted by John Pope
 //  Copyright (c) 2013 mwermuth.com. All rights reserved.
 //
 //http://stackoverflow.com/questions/4404745/change-the-speed-of-setcontentoffsetanimated
@@ -10,6 +11,7 @@
 
 #import "MWNumberPicker.h"
 #import "JPTableView.h"
+
 
 @interface MWNumberPicker()
 
@@ -39,6 +41,7 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         self.clipsToBounds = YES;
+        animationArray = [[NSMutableArray alloc]init];
         
         /* To emulate infinite scrolling...
          
@@ -59,7 +62,7 @@
         self.fontColor = [UIColor blackColor];
         self.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 
-        shouldUseShadows = NO;
+        self.shouldUseShadows = NO;
     }
     return self;
 }
@@ -95,13 +98,15 @@
 
 -(void) selectRow:(NSInteger)row inComponent:(NSInteger)component animated:(BOOL)animated{
     
+    NSLog(@"selectRow row:%d  component:%d",row,component);
     [self.selectedRowIndexes replaceObjectAtIndex:component withObject:[NSNumber numberWithInteger:row]];
     
     UITableView *table = [self.tables objectAtIndex:component];
     
     const CGPoint alignedOffset = CGPointMake(0, row*table.rowHeight - table.contentInset.top);
-    //[table setContentOffset:alignedOffset animated:animated];
-    [(JPTableView*)table doAnimatedScrollTo:alignedOffset];
+   // [table setContentOffset:alignedOffset animated:animated];
+    [table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
+    //[(JPTableView*)table doAnimatedScrollTo:alignedOffset];
  
     
     if ([self.delegate respondsToSelector:@selector(numberPicker:didSelectRow:inComponent:)]) {
@@ -161,7 +166,6 @@
         view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         view.tag = tag;
         cell.userInteractionEnabled = YES;
-        view.userInteractionEnabled = YES;
         [cell.contentView addSubview:view];
     }
     else{
@@ -169,7 +173,8 @@
         view = [cell.contentView viewWithTag:tag];
     }
     
-    [self setDataForView:view row:indexPath.row inComponent:component];
+    
+   // [self setDataForView:view row:indexPath.row inComponent:component];
     
     return cell;
 }
@@ -192,24 +197,25 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
     if (!decelerate) {
-        [self alignTableViewToRowBoundary:(UITableView *)scrollView];
+      //  [self alignTableViewToRowBoundary:(UITableView *)scrollView];
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    /*if ([scrollView isKindOfClass:[JPTableView class]]) {
-        JPTableView *sv = (JPTableView*)scrollView;
-          [sv scrollViewDidEndDecelerating];
-    }*/
   
-    [self alignTableViewToRowBoundary:(UITableView *)scrollView];
+   // [self alignTableViewToRowBoundary:(UITableView *)scrollView];
 }
 
 #pragma mark - Content managemet
 
 - (void)addContent{
     
-    rowHeight = 100;
+    if (IS_IPAD) {
+            rowHeight = 100;
+    }else{
+        rowHeight = 50;
+    }
+
     
     centralRowOffset = (self.frame.size.height - rowHeight)/2;
     
@@ -225,11 +231,16 @@
 
         
         UITableView *table = [[JPTableView alloc] initWithFrame:tableFrame];
+        //table.pagingEnabled = NO;
+        table.alwaysBounceVertical = YES;
         table.rowHeight = rowHeight;
-        table.contentInset = UIEdgeInsetsMake(centralRowOffset, 0, centralRowOffset, 0);
-        table.separatorStyle = UITableViewCellSeparatorStyleNone;
-        table.showsVerticalScrollIndicator = NO;
         
+        //table.contentInset = UIEdgeInsetsMake(centralRowOffset, 0, centralRowOffset, 0);
+       // table.separatorStyle = UITableViewCellSeparatorStyleNone;
+        table.showsVerticalScrollIndicator = NO;
+        if ([table respondsToSelector:@selector(separatorInset)]) {
+            table.separatorInset = UIEdgeInsetsZero;
+        }
         table.dataSource = self;
         table.delegate = self;
         table.tag = i;
@@ -241,7 +252,7 @@
         tableFrame.origin.x += tableFrame.size.width-5;
     }
     
-    if (shouldUseShadows) {
+    if (_shouldUseShadows) {
         UIView *upperShadow = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.bounds.size.width, self.bounds.size.height*1/3)];
         //[v setBackgroundColor:[UIColor greenColor]];
         CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -310,7 +321,7 @@
         } else if ([self.delegate respondsToSelector:@selector(numberPicker:backgroundColorForComponent:)]) {
             table.backgroundColor = [self.delegate numberPicker:self backgroundColorForComponent:i];
         } else {
-            table.backgroundColor = [UIColor blackColor];
+            table.backgroundColor = [UIColor clearColor];
         }
         ++i;
     }
@@ -326,7 +337,7 @@
         self.backgroundColor = [self.delegate backgroundColorForNumberPicker:self];
     }
     else{
-        self.backgroundColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor clearColor];
     }
     
     // optional overlay
@@ -427,7 +438,13 @@
     label.textAlignment = NSTextAlignmentCenter;
     
     label.textColor = self.fontColor;
-    label.font = [UIFont systemFontOfSize:120];
+    label.shadowColor = [UIColor blackColor];
+    label.shadowOffset = CGSizeMake(0, 1);
+    if (IS_IPAD) {
+            label.font = [UIFont systemFontOfSize:120];
+    }else{
+        label.font = [UIFont systemFontOfSize:60];
+    }
     return label;
 }
 
@@ -449,26 +466,52 @@
 
     int x=0;
     for (UITableView *tv in self.tables) {
-         [self selectRow:0 inComponent:x animated:NO]; //reset this - to do work out how to hide rows
+          int r = arc4random() % 10;
+         [self selectRow:r inComponent:x animated:YES]; //reset this - to do work out how to hide rows
         x++;
     }
     int number = [num intValue];
 
-    NSMutableArray *arr = [NSMutableArray array];
+    [animationArray removeAllObjects];
     
     while ( number != 0 ) {
         int right_digit = number % 10;
         // NSLog (@"arr:%@", arr);
-        [arr addObject:[NSNumber numberWithInt:right_digit]];
+        [animationArray addObject:[NSNumber numberWithInt:right_digit]];
         number /= 10;
     }
     
-    int i=[[self tables] count]-1;
-    for (NSNumber *num in arr) {
-        [self selectRow:[num intValue] inComponent:i animated:animated];
-        i--;
+    idx =0;
+    [self animateNextRowSelect];
+    
+    
+}
+-(void)animateNextRowSelect{
+    int n = [animationArray count];
+    if (n) {
+        NSNumber *num = [animationArray objectAtIndex:0];
+             int r = arc4random() % 4;
+        [UIView animateWithDuration:r delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            
+            [self selectRow:[num intValue] inComponent:idx animated:NO];
+            int total = [[self tables] count]-1;
+            if (total ==idx ) {
+                return;;
+            }
+            idx++;
+            
+        }   completion:^(BOOL finished){
+            NSLog(@"completion");
+            if ([animationArray count]) {
+                [animationArray removeObjectAtIndex:0];
+                [self performSelector:@selector(animateNextRowSelect) withObject:nil afterDelay:0.5];
+            }else{
+               // [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(animateNextRowSelect) object:nil];
+                
+            }
+        }];
     }
-   // autoScrolling = NO; - need to delay this
+   
 }
 
 
@@ -483,6 +526,7 @@
 
 - (void)alignTableViewToRowBoundary:(UITableView *)tableView
 {
+   
     const CGPoint relativeOffset = CGPointMake(0, tableView.contentOffset.y + tableView.contentInset.top);
     const NSUInteger row = round(relativeOffset.y / tableView.rowHeight);
     
@@ -496,16 +540,18 @@
 
 
 - (void)setShouldUseShadows:(BOOL)useShadows{
-    
-    shouldUseShadows = useShadows;
+    _shouldUseShadows = useShadows;
     [self update];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView_
 {
-    if (autoScrolling) {
-           return; // we're time bombing
+    
+    if (scrollView_.contentOffset.y >= (scrollView_.contentSize.height - scrollView_.bounds.size.height)){
+        NSLog(@"we're bouncing");
     }
+    
+    return;
  
     CGFloat currentOffsetX = scrollView_.contentOffset.x;
     CGFloat currentOffSetY = scrollView_.contentOffset.y;

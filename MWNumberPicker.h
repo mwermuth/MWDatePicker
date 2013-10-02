@@ -3,12 +3,13 @@
 //  MWNumberPicker
 //
 //  Created by Marcus on 06.06.13.
+//  Adapted by John Pope
 //  Copyright (c) 2013 mwermuth.com. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
+#include <stdlib.h>
 
 @protocol MWPickerDataSource;
 @protocol MWPickerDelegate;
@@ -21,6 +22,10 @@
     NSDate *startTime;
     NSTimer *timer;
     
+    // handle animations
+     NSMutableArray *animationArray;
+    int idx;
+    
     
     
     BOOL autoScrolling;
@@ -30,12 +35,12 @@
     NSArray *digits;
 
     
-    BOOL shouldUseShadows;
+
     
     int masterDigit;
     
 }
-
+@property (nonatomic)     BOOL shouldUseShadows;
 @property (nonatomic, strong) id<MWNumberPickerDelegate> delegate;
 @property (nonatomic, copy)NSCalendar *calendar;
 
