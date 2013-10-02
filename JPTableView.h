@@ -5,6 +5,7 @@
 
 @interface JPTableView : UITableView{
   PRTweenOperation *activeTweenOperation;
+    int idx;
 }
 @property (nonatomic,assign) MWNumberPicker *pickerDelegate;
 @property (nonatomic, strong) NSDate *startTime;

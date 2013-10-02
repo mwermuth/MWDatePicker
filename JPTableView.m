@@ -87,6 +87,8 @@
 - (void)bounceScrollView
 {
 
+    return;
+    
     NSString *locked =[self lockedState];
     NSLog(@"scrollstate:%@",locked);
     if ([locked isEqualToString:kAutoScrolling]) return;
@@ -134,18 +136,69 @@
 {
     CGPoint offset = [self contentOffset];
     
-    activeTweenOperation.timingFunction = timingFunction;//PRTweenTimingFunctionUIViewEaseOut;
+    //activeTweenOperation.timingFunction = ;//PRTweenTimingFunctionUIViewEaseOut;
     activeTweenOperation = [PRTweenCGPointLerp lerp:self property:@"contentOffset" from:offset to:destinationOffset duration:duration];
+    PRTweenTimingFunction f;
     
-    
+    int rnd = idx;//arc4random() % 40;
+    NSLog(@"rn:%d",rnd);
+    switch (rnd) {
+        case 0:   f = PRTweenTimingFunctionLinear;  break;
+        case 1:   f = PRTweenTimingFunctionBackOut; break;
+        case 2:   f = PRTweenTimingFunctionBackIn; break;
+        case 3:   f = PRTweenTimingFunctionBackInOut; break;
+        case 4:   f = PRTweenTimingFunctionBounceOut; break;
+        case 5:   f = PRTweenTimingFunctionBounceIn; break;
+        case 6:   f = PRTweenTimingFunctionBounceInOut; break;
+        case 7:   f = PRTweenTimingFunctionCircOut; break;
+        case 8:   f = PRTweenTimingFunctionCircIn; break;
+        case 9:   f = PRTweenTimingFunctionCircInOut; break;
+        case 10:   f = PRTweenTimingFunctionCubicOut; break;
+        case 11:   f = PRTweenTimingFunctionCubicIn; break;
+        case 12:   f = PRTweenTimingFunctionCubicInOut; break;
+        case 13:   f = PRTweenTimingFunctionElasticOut; break;
+        case 14:   f = PRTweenTimingFunctionElasticIn; break;
+        case 15:   f = PRTweenTimingFunctionElasticInOut; break;
+        case 16:   f = PRTweenTimingFunctionExpoOut; break;
+        case 17:   f = PRTweenTimingFunctionExpoIn; break;
+        case 18:   f = PRTweenTimingFunctionExpoInOut; break;
+        case 19:   f = PRTweenTimingFunctionQuadOut; break;
+        case 20:   f = PRTweenTimingFunctionQuadIn; break;
+        case 21:   f = PRTweenTimingFunctionQuadInOut; break;
+        case 22:   f = PRTweenTimingFunctionQuartOut; break;
+        case 23:   f = PRTweenTimingFunctionQuartIn; break;
+        case 24:   f = PRTweenTimingFunctionQuartInOut; break;
+        case 25:   f = PRTweenTimingFunctionQuintOut; break;
+        case 26:   f = PRTweenTimingFunctionQuintIn; break;
+        case 27:   f = PRTweenTimingFunctionQuintInOut; break;
+        case 28:   f = PRTweenTimingFunctionSineOut; break;
+        case 29:   f = PRTweenTimingFunctionSineIn; break;
+        case 30:   f = PRTweenTimingFunctionSineInOut; break;
+        case 31:   f = PRTweenTimingFunctionCALinear;        break;
+        case 32:   f = PRTweenTimingFunctionCAEaseIn;        break;
+        case 33:   f = PRTweenTimingFunctionCAEaseOut;       break;
+        case 34:   f = PRTweenTimingFunctionCAEaseInOut;     break;
+        case 35:   f = PRTweenTimingFunctionCADefault;      break;
+        case 36:   f = PRTweenTimingFunctionUIViewLinear;        break;
+        case 37:   f = PRTweenTimingFunctionUIViewEaseIn;      break;
+        case 38:   f = PRTweenTimingFunctionUIViewEaseOut;       break;
+        case 39:   f = PRTweenTimingFunctionUIViewEaseInOut;     break;
+    }
+  
+    activeTweenOperation.timingFunction = f;
+    activeTweenOperation.target = self;
+    activeTweenOperation.updateSelector = @selector(update:);
+    idx++;
 }
 
 - (void)update:(PRTweenPeriod*)period {
-   /* if ([period isKindOfClass:[PRTweenCGPointLerpPeriod class]]) {
-        testView.center = [(PRTweenCGPointLerpPeriod*)period tweenedCGPoint];
-    } else {
-        testView.frame = CGRectMake(0, period.tweenedValue, 100, 100);
-    }*/
+   // NSLog(@"period");
+    if (self.contentOffset.y >= (self.contentSize.height - self.bounds.size.height)){
+        NSLog(@"we're bouncing");
+        
+    }
+
+ 
 }
 
 @end

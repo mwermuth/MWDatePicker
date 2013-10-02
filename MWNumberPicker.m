@@ -109,11 +109,10 @@
     JPTableView *table = [self.tables objectAtIndex:component];
     [table  cancelScrolling];
 
-        
+    //int r = arc4random() % 10;
     const CGPoint alignedOffset = CGPointMake(0, row*table.rowHeight - table.contentInset.top);
-    [(JPTableView*)table doAnimatedScrollTo:alignedOffset duration:duration timingFuntion:PRTweenTimingFunctionCAEaseIn];
- 
-    
+    [(JPTableView*)table doAnimatedScrollTo:alignedOffset duration:duration timingFuntion:PRTweenTimingFunctionUIViewEaseIn];
+
     if ([self.delegate respondsToSelector:@selector(numberPicker:didSelectRow:inComponent:)]) {
         [self.delegate numberPicker:self didSelectRow:row inComponent:component];
     }
@@ -194,7 +193,7 @@
         [self.delegate numberPicker:self didClickRow:indexPath.row inComponent:component];
     }
 
-    [self selectRow:indexPath.row inComponent:component animated:YES];
+    [self selectRow:indexPath.row inComponent:component animated:YES duration:0.5];
 }
 
 #pragma mark - UIScrollView Delegate Methods
@@ -604,7 +603,8 @@
     
 }
 
-static CGFloat kFlipAnimationUpdateInterval = 0.5; // = 2 times per second
+// USED FOR COUNTING 1 + 2 etc
+static CGFloat kFlipAnimationUpdateInterval = 1; // 0.5 = 2 times per second
 #pragma mark update timer
 
 
