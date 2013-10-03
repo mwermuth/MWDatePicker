@@ -128,15 +128,18 @@
 
     NSLog(@"runTimerTween");
     __weak MWViewController *weakSelf = self;
-    __block int tWeak =tInterval;
     PRTweenPeriod *period = [PRTweenPeriod periodWithStartValue:5 endValue:1 duration:5];
     activeTweenOperation = [[PRTween sharedInstance] addTweenPeriod:period target:self selector:@selector(update:) timingFunction:f ];
     idx++;
     activeTweenOperation.completeBlock = ^{
-        tWeak = 5.0f;
-        [weakSelf changeNumber];
-        [weakSelf runTimerTween];
+        [weakSelf performSelector:@selector(runSequence) withObject:nil afterDelay:4]; // do this after a delay
+        
     };
+}
+-(void)runSequence{
+    tInterval = 5.0f;
+    [self changeNumber];
+    [self runTimerTween];
 }
 - (void)update:(PRTweenPeriod*)period {
     tInterval = period.tweenedValue;
@@ -153,6 +156,7 @@
       [self performSelector:@selector(changeNumber) withObject:nil afterDelay:r];
 }
 -(void)stopTimer{
+    [[PRTween sharedInstance] removeAllTweenOperations];
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
      [numberPicker stop];
 }
