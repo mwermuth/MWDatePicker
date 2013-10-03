@@ -22,6 +22,10 @@
 		2C2EC806173A2BD80062524C /* MWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2EC803173A2BD80062524C /* MWAppDelegate.m */; };
 		2C2EC807173A2BD80062524C /* MWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2EC805173A2BD80062524C /* MWViewController.m */; };
 		2C3418861767695F00B54B87 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3418851767695F00B54B87 /* QuartzCore.framework */; };
+		5D47006D17FA959300DD5A9F /* MWNumberPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47006C17FA959300DD5A9F /* MWNumberPicker.m */; };
+		5D47007017FB886B00DD5A9F /* JPTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47006F17FB886B00DD5A9F /* JPTableView.m */; };
+		5D47008717FBF38300DD5A9F /* PRTween.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47008417FBF38300DD5A9F /* PRTween.m */; };
+		5D47008817FBF38300DD5A9F /* PRTweenTimingFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47008617FBF38300DD5A9F /* PRTweenTimingFunctions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +49,14 @@
 		2C2EC804173A2BD80062524C /* MWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWViewController.h; path = Demo/MWViewController.h; sourceTree = SOURCE_ROOT; };
 		2C2EC805173A2BD80062524C /* MWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWViewController.m; path = Demo/MWViewController.m; sourceTree = SOURCE_ROOT; };
 		2C3418851767695F00B54B87 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5D47006B17FA959300DD5A9F /* MWNumberPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWNumberPicker.h; sourceTree = SOURCE_ROOT; };
+		5D47006C17FA959300DD5A9F /* MWNumberPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWNumberPicker.m; sourceTree = SOURCE_ROOT; };
+		5D47006E17FB886B00DD5A9F /* JPTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTableView.h; sourceTree = SOURCE_ROOT; };
+		5D47006F17FB886B00DD5A9F /* JPTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPTableView.m; sourceTree = SOURCE_ROOT; };
+		5D47008317FBF38300DD5A9F /* PRTween.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTween.h; sourceTree = "<group>"; };
+		5D47008417FBF38300DD5A9F /* PRTween.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRTween.m; sourceTree = "<group>"; };
+		5D47008517FBF38300DD5A9F /* PRTweenTimingFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTweenTimingFunctions.h; sourceTree = "<group>"; };
+		5D47008617FBF38300DD5A9F /* PRTweenTimingFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRTweenTimingFunctions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +114,11 @@
 		2C2EC7C9173A2B5E0062524C /* MWDatePickerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5D47008217FBF38300DD5A9F /* Preen */,
+				5D47006B17FA959300DD5A9F /* MWNumberPicker.h */,
+				5D47006C17FA959300DD5A9F /* MWNumberPicker.m */,
+				5D47006E17FB886B00DD5A9F /* JPTableView.h */,
+				5D47006F17FB886B00DD5A9F /* JPTableView.m */,
 				2C1A1D3117607DA900042990 /* MWDatePicker */,
 				2C2EC802173A2BD80062524C /* MWAppDelegate.h */,
 				2C2EC803173A2BD80062524C /* MWAppDelegate.m */,
@@ -128,6 +145,17 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		5D47008217FBF38300DD5A9F /* Preen */ = {
+			isa = PBXGroup;
+			children = (
+				5D47008317FBF38300DD5A9F /* PRTween.h */,
+				5D47008417FBF38300DD5A9F /* PRTween.m */,
+				5D47008517FBF38300DD5A9F /* PRTweenTimingFunctions.h */,
+				5D47008617FBF38300DD5A9F /* PRTweenTimingFunctions.m */,
+			);
+			path = Preen;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -199,9 +227,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2EC7F7173A2BB40062524C /* main.m in Sources */,
+				5D47008817FBF38300DD5A9F /* PRTweenTimingFunctions.m in Sources */,
+				5D47007017FB886B00DD5A9F /* JPTableView.m in Sources */,
 				2C2EC806173A2BD80062524C /* MWAppDelegate.m in Sources */,
 				2C2EC807173A2BD80062524C /* MWViewController.m in Sources */,
 				2C1A1D3017607DA400042990 /* MWDatePicker.m in Sources */,
+				5D47006D17FA959300DD5A9F /* MWNumberPicker.m in Sources */,
+				5D47008717FBF38300DD5A9F /* PRTween.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

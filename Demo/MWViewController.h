@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "MWDatePicker.h"
+#import "MWNumberPicker.h"
+#import "PRTween.h"
 
-@interface MWViewController : UIViewController < MWPickerDelegate>
-
+@interface MWViewController : UIViewController < MWNumberPickerDelegate>{
+    UILabel *tweenLabel;
+    UILabel *titleLabel;
+    MWNumberPicker *numberPicker;
+    PRTweenOperation *activeTweenOperation;
+    CGFloat tInterval;
+    BOOL black;
+    int idx;
+    
+}
+@property (nonatomic,assign) NSTimeInterval timeInterval;
 @end
