@@ -43,7 +43,7 @@
         self.clipsToBounds = YES;
         
 
-        animationArray = [[NSMutableArray alloc]init];
+        digitArray = [[NSMutableArray alloc]init];
         
         /* To emulate infinite scrolling...
          
@@ -116,9 +116,6 @@
     
     [(JPTableView*)table doAnimatedScrollTo:alignedOffset duration:duration timingFuntion:PRTweenTimingFunctionUIViewEaseIn];
 
-    if ([self.delegate respondsToSelector:@selector(numberPicker:didSelectRow:inComponent:)]) {
-        [self.delegate numberPicker:self didSelectRow:row inComponent:component];
-    }
 }
 
 -(void) reloadData{
@@ -472,30 +469,38 @@
 }
 - (void)setNumber:(NSNumber*)num animated:(BOOL)animated{
     
-    int number = [num intValue];
+    [self setNumber:num animated:animated duration:2];
+    
+}
 
-    [animationArray removeAllObjects];
+- (void)setNumber:(NSNumber*)num animated:(BOOL)animated duration:(float)duration{
+    
+    int number = [num intValue];
+    
+    [digitArray removeAllObjects];
     
     while ( number != 0 ) {
         int right_digit = number % 10;
         // NSLog (@"arr:%@", arr);
-        [animationArray addObject:[NSNumber numberWithInt:right_digit]];
+        [digitArray addObject:[NSNumber numberWithInt:right_digit]];
         number /= 10;
     }
     
     idx =0;
-    [self animateNextRowSelect];
+    [self animateNextRowSelectWithDuration:[NSNumber numberWithFloat:duration]];
     
     
 }
--(void)animateNextRowSelect{
-    int n = [animationArray count];
+// this is iterating from first tableview through to the last tableview. step through the lists.
+-(void)animateNextRowSelectWithDuration:(NSNumber*)_duration{
+    float duration = [_duration floatValue];
+    int n = [digitArray count];
     if (n) {
-        NSNumber *num = [animationArray objectAtIndex:0];
+        NSNumber *num = [digitArray objectAtIndex:0];
         
-        [UIView animateWithDuration:2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:duration animations:^{
             
-            [self selectRow:[num intValue] inComponent:idx animated:NO duration:2];
+            [self selectRow:[num intValue] inComponent:idx animated:NO duration:duration];
             int total = [[self tables] count]-1;
             if (total ==idx ) {
                 JPTableView *tv = [[self tables] objectAtIndex:idx-1];
@@ -505,11 +510,11 @@
             
         }   completion:^(BOOL finished){
             NSLog(@"completion");
-            if ([animationArray count]) {
+            if ([digitArray count]) {
                 JPTableView *tv = [[self tables] objectAtIndex:idx-1];
-                [animationArray removeObjectAtIndex:0];
+                [digitArray removeObjectAtIndex:0];
                 
-                [self performSelector:@selector(animateNextRowSelect) withObject:nil afterDelay:0.5];
+                [self performSelector:@selector(animateNextRowSelectWithDuration:) withObject:_duration afterDelay:0.5];
             }else{
     
                 

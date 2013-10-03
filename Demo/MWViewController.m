@@ -128,7 +128,7 @@
 
     NSLog(@"runTimerTween");
     __weak MWViewController *weakSelf = self;
-    PRTweenPeriod *period = [PRTweenPeriod periodWithStartValue:5 endValue:1 duration:5];
+    PRTweenPeriod *period = [PRTweenPeriod periodWithStartValue:1 endValue:5 duration:5];
     activeTweenOperation = [[PRTween sharedInstance] addTweenPeriod:period target:self selector:@selector(update:) timingFunction:f ];
     idx++;
     activeTweenOperation.completeBlock = ^{

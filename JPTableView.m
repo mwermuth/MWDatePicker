@@ -101,7 +101,7 @@
     PRTweenTimingFunction f;
     
     int rnd = idx;//arc4random() % 40;
-    if (idx == 40) {
+    if (idx == 30) {
         idx = 0;
     }
     NSLog(@"rn:%d",rnd);
@@ -137,7 +137,7 @@
         case 28:   f = PRTweenTimingFunctionSineOut; break;
         case 29:   f = PRTweenTimingFunctionSineIn; break;
         case 30:   f = PRTweenTimingFunctionSineInOut; break;
-        case 31:   f = PRTweenTimingFunctionCALinear;        break;
+        /*case 31:   f = PRTweenTimingFunctionCALinear;        break;
         case 32:   f = PRTweenTimingFunctionCAEaseIn;        break;
         case 33:   f = PRTweenTimingFunctionCAEaseOut;       break;
         case 34:   f = PRTweenTimingFunctionCAEaseInOut;     break;
@@ -146,7 +146,7 @@
         case 37:   f = PRTweenTimingFunctionUIViewEaseIn;      break;
         case 38:   f = PRTweenTimingFunctionUIViewEaseOut;       break;
         case 39:   f = PRTweenTimingFunctionUIViewEaseInOut;     break;
-        case 40:   f = PRTweenTimingFunctionLinear;  break;
+        case 40:   f = PRTweenTimingFunctionLinear;  break;*/
     }
   
     activeTweenOperation.timingFunction = f;

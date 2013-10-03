@@ -17,7 +17,7 @@
 @interface MWNumberPicker : UIView <UITableViewDelegate, UITableViewDataSource> {
 
     // handle animations
-     NSMutableArray *animationArray;
+     NSMutableArray *digitArray;
     int idx;
 
     CGFloat rowHeight;
