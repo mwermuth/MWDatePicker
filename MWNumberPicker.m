@@ -34,7 +34,6 @@
 @implementation MWNumberPicker
 
 
-@synthesize autoScrollingDict;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -43,7 +42,7 @@
         self.backgroundColor = [UIColor whiteColor];
         self.clipsToBounds = YES;
         
-        self.autoScrollingDict = [[NSMutableDictionary alloc]init];
+
         animationArray = [[NSMutableArray alloc]init];
         
         /* To emulate infinite scrolling...
@@ -109,8 +108,12 @@
     JPTableView *table = [self.tables objectAtIndex:component];
     [table  cancelScrolling];
 
+
+    
+    
     //int r = arc4random() % 10;
     const CGPoint alignedOffset = CGPointMake(0, row*table.rowHeight - table.contentInset.top);
+    
     [(JPTableView*)table doAnimatedScrollTo:alignedOffset duration:duration timingFuntion:PRTweenTimingFunctionUIViewEaseIn];
 
     if ([self.delegate respondsToSelector:@selector(numberPicker:didSelectRow:inComponent:)]) {
@@ -209,18 +212,11 @@
 
 
 }
--(NSString*)lockedStateForTableView:(UIScrollView *)scrollView{
-     NSString *str = [self.autoScrollingDict valueForKey:[NSString stringWithFormat:@"%d",scrollView.tag]];
-    NSLog(@"lockedStateForTableView:%@",str);
-    if (str == nil) {
-        return @"";
-    }
-    return str;
-}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
   
       NSLog(@"scrollViewDidEndDecelerating");
-    [(JPTableView*)scrollView cancelScrolling];
+    //[(JPTableView*)scrollView cancelScrolling];
     [(JPTableView*)scrollView bounceScrollView];
     
     
@@ -476,15 +472,6 @@
 }
 - (void)setNumber:(NSNumber*)num animated:(BOOL)animated{
     
-
-    /*int x=0;
-    for (UITableView *tv in self.tables) {
-       // [tv reloadData];
-
-          int r = arc4random() % 10;
-         [self selectRow:r inComponent:x animated:YES]; //reset this - to do work out how to hide rows
-        x++;
-    }*/
     int number = [num intValue];
 
     [animationArray removeAllObjects];
@@ -512,7 +499,6 @@
             int total = [[self tables] count]-1;
             if (total ==idx ) {
                 JPTableView *tv = [[self tables] objectAtIndex:idx-1];
-                 [self.autoScrollingDict setValue:nil forKey:[NSString stringWithFormat:@"%d",tv.tag]];
                 return;;
             }
             idx++;
@@ -521,12 +507,11 @@
             NSLog(@"completion");
             if ([animationArray count]) {
                 JPTableView *tv = [[self tables] objectAtIndex:idx-1];
-                [self.autoScrollingDict setValue:nil forKey:[NSString stringWithFormat:@"%d",tv.tag]];
                 [animationArray removeObjectAtIndex:0];
                 
                 [self performSelector:@selector(animateNextRowSelect) withObject:nil afterDelay:0.5];
             }else{
-               // [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(animateNextRowSelect) object:nil];
+    
                 
             }
         }];
@@ -573,15 +558,7 @@
         NSLog(@"we're bouncing");
       
     }
-    
-    NSNumber *b = [self.autoScrollingDict valueForKey:[NSString stringWithFormat:@"%d",scrollView_.tag]];
-    if (b!=nil) {
-       // NSLog(@"b:%@",b);
-    }
-    if ([b intValue]) {
-          return;
-    }
-    
+
   
  
     CGFloat currentOffsetX = scrollView_.contentOffset.x;

@@ -1,5 +1,5 @@
 #import "JPTableView.h"
-#include <stdlib.h>
+
 
 
 @implementation JPTableView
@@ -85,16 +85,18 @@
     CGPoint destinationOffset = CGPointMake(pt.x, 00);
     
     activeTweenOperation = [PRTweenCGPointLerp lerp:self property:@"contentOffset" from:[self contentOffset] to:destinationOffset duration:1];
-
+//[self addTweenOperation:tweenOperation]
 
 }
 
 
 - (void) doAnimatedScrollTo:(CGPoint)destinationOffset duration:(CGFloat)duration timingFuntion:(PRTweenTimingFunction)timingFunction
 {
+
+    
     CGPoint offset = [self contentOffset];
     
-    //activeTweenOperation.timingFunction = ;//PRTweenTimingFunctionUIViewEaseOut;
+    //activeTweenOperation.timingFunction = ;//;
     activeTweenOperation = [PRTweenCGPointLerp lerp:self property:@"contentOffset" from:offset to:destinationOffset duration:duration];
     PRTweenTimingFunction f;
     
@@ -144,7 +146,7 @@
         case 37:   f = PRTweenTimingFunctionUIViewEaseIn;      break;
         case 38:   f = PRTweenTimingFunctionUIViewEaseOut;       break;
         case 39:   f = PRTweenTimingFunctionUIViewEaseInOut;     break;
-            
+        case 40:   f = PRTweenTimingFunctionLinear;  break;
     }
   
     activeTweenOperation.timingFunction = f;

@@ -15,33 +15,19 @@
 @protocol MWPickerDelegate;
 @protocol MWNumberPickerDelegate;
 @interface MWNumberPicker : UIView <UITableViewDelegate, UITableViewDataSource> {
-    
- 
-    //animate the didselect row
-    CGPoint startOffset;
-    CGPoint destinationOffset;
-    NSDate *startTime;
-    NSTimer *timer;
-    
+
     // handle animations
      NSMutableArray *animationArray;
     int idx;
-    
-    
-    
-    BOOL autoScrolling;
+
     CGFloat rowHeight;
     CGFloat centralRowOffset;
     
     NSArray *digits;
-
-    
-
-    
     int masterDigit;
     
 }
-@property (nonatomic,strong)   NSMutableDictionary *autoScrollingDict; // used to stop some table from calling viewdidscroll
+
 @property (nonatomic)     BOOL shouldUseShadows;
 @property (nonatomic, strong) id<MWNumberPickerDelegate> delegate;
 @property (nonatomic, copy)NSCalendar *calendar;
